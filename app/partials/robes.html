@@ -9,7 +9,7 @@
     <div class="row">
        <div ng-repeat = "clothe in clothes" class="col-6 col-sm-6 col-lg-3">
            <a ng-href="#/clothes/{{clothe.sex}}/{{clothe.type}}/{{clothe.dbname}}{{clothe._id}}">
-               <img class="thumbnail" src="{{clothe.photo}}" />
+               <img class="thumbnail" style="max-width:250px;" src="{{clothe.photo}}" />
            </a>
        </div>
 </div>

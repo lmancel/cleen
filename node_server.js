@@ -94,6 +94,7 @@ db.once('open', function callback () {
     });
     app.get('/colors', function (req, res) {
         Colors.find(null)
+            .limit(7)
             .exec(function(err,colors){
                 if (err==true){
                     res.send('err');
@@ -111,7 +112,7 @@ db.once('open', function callback () {
         model: String,
         photo: String,
         materials: [{name:String, perc:Number}],
-        color: String,
+        color: [String],
         lavage: String,
         blanchiment: String,
         sechage: String,

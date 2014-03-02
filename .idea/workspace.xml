@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5077c8b6-919f-47ee-853d-feaf67335e9b" name="Default" comment="" />
+    <list default="true" id="5077c8b6-919f-47ee-853d-feaf67335e9b" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/IMG_1154.JPG" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/img/IMG_1158.JPG" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/img/robe2.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/img/robe3.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/img/robe4.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/img/robe5.JPG" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fillDB.js" afterPath="$PROJECT_DIR$/fillDB.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_server.js" afterPath="$PROJECT_DIR$/node_server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/partials/robe2.html" afterPath="$PROJECT_DIR$/app/partials/robe2.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/partials/robes.html" afterPath="$PROJECT_DIR$/app/partials/robes.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="cleen.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -76,8 +89,10 @@
       <file leaf-file-name="robes.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/partials/robes.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="36" selection-start="190" selection-end="190" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="396">
-              <folding />
+            <state line="11" column="38" selection-start="429" selection-end="453" vertical-scroll-proportion="-7.3333335" vertical-offset="0" max-vertical-offset="396">
+              <folding>
+                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -85,8 +100,10 @@
       <file leaf-file-name="robe2.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/partials/robe2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="53" selection-start="1369" selection-end="1369" vertical-scroll-proportion="-4.259259" vertical-offset="461" max-vertical-offset="1062">
-              <folding />
+            <state line="18" column="44" selection-start="586" selection-end="586" vertical-scroll-proportion="-8.925926" vertical-offset="83" max-vertical-offset="1062">
+              <folding>
+                <element signature="n#style#0;n#img#0;n#p#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,7 +111,7 @@
       <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="56" selection-start="4246" selection-end="4246" vertical-scroll-proportion="0.0" vertical-offset="1771" max-vertical-offset="2592">
+            <state line="121" column="56" selection-start="4246" selection-end="4246" vertical-scroll-proportion="0.0" vertical-offset="1728" max-vertical-offset="2592">
               <folding />
             </state>
           </provider>
@@ -103,7 +120,7 @@
       <file leaf-file-name="node_server.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node_server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="179" column="41" selection-start="5193" selection-end="5193" vertical-scroll-proportion="0.0" vertical-offset="2941" max-vertical-offset="3582">
+            <state line="114" column="23" selection-start="3235" selection-end="3235" vertical-scroll-proportion="0.0" vertical-offset="2959" max-vertical-offset="3600">
               <folding />
             </state>
           </provider>
@@ -112,7 +129,7 @@
       <file leaf-file-name="fillDB.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fillDB.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="239" column="79" selection-start="7413" selection-end="7413" vertical-scroll-proportion="6.33121" vertical-offset="326" max-vertical-offset="6192">
+            <state line="377" column="33" selection-start="11378" selection-end="11378" vertical-scroll-proportion="0.5732484" vertical-offset="6426" max-vertical-offset="7200">
               <folding />
             </state>
           </provider>
@@ -124,6 +141,9 @@
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
     <option name="myDateState">
@@ -141,10 +161,10 @@
         <option value="$PROJECT_DIR$/src/mongodb.java" />
         <option value="$PROJECT_DIR$/app/js/mongodb.js" />
         <option value="$PROJECT_DIR$/app/index.html" />
-        <option value="$PROJECT_DIR$/app/partials/robes.html" />
-        <option value="$PROJECT_DIR$/node_server.js" />
-        <option value="$PROJECT_DIR$/app/partials/robe2.html" />
         <option value="$PROJECT_DIR$/app/js/app.js" />
+        <option value="$PROJECT_DIR$/node_server.js" />
+        <option value="$PROJECT_DIR$/app/partials/robes.html" />
+        <option value="$PROJECT_DIR$/app/partials/robe2.html" />
         <option value="$PROJECT_DIR$/fillDB.js" />
       </list>
     </option>
@@ -298,7 +318,7 @@
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/mongo-java-driver-2.11.4-sources.jar!/" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -581,12 +601,12 @@
       <workItem from="1393339662902" duration="1590000" />
       <workItem from="1393370639704" duration="8941000" />
       <workItem from="1393427560514" duration="2165000" />
-      <workItem from="1393771624922" duration="13987000" />
+      <workItem from="1393771624922" duration="18157000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76923000" />
+    <option name="totallyTimeSpent" value="81093000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-4" width="1313" height="773" extended-state="6" />
@@ -647,17 +667,12 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/partials/robes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="36" selection-start="190" selection-end="190" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="396">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/partials/robe2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="22" selection-start="1290" selection-end="1290" vertical-scroll-proportion="0.0" vertical-offset="756" max-vertical-offset="936">
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#p#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -713,7 +728,9 @@
     <entry file="file://$PROJECT_DIR$/app/partials/robes.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="50" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="1116">
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -928,20 +945,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/partials/robes.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="36" selection-start="190" selection-end="190" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="396">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/partials/robe2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="53" selection-start="1369" selection-end="1369" vertical-scroll-proportion="-4.259259" vertical-offset="461" max-vertical-offset="1062">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="98" column="54" selection-start="3621" selection-end="3621" vertical-scroll-proportion="-22.25926" vertical-offset="1163" max-vertical-offset="2466">
@@ -956,16 +959,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/partials/robes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="38" selection-start="429" selection-end="453" vertical-scroll-proportion="-7.3333335" vertical-offset="0" max-vertical-offset="396">
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/partials/robe2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="44" selection-start="586" selection-end="586" vertical-scroll-proportion="-8.925926" vertical-offset="83" max-vertical-offset="1062">
+          <folding>
+            <element signature="n#style#0;n#img#0;n#p#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/node_server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="179" column="41" selection-start="5193" selection-end="5193" vertical-scroll-proportion="0.0" vertical-offset="2941" max-vertical-offset="3582">
+        <state line="114" column="23" selection-start="3235" selection-end="3235" vertical-scroll-proportion="0.0" vertical-offset="2959" max-vertical-offset="3600">
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/img/IMG_1154.JPG">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fillDB.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="239" column="79" selection-start="7413" selection-end="7413" vertical-scroll-proportion="6.33121" vertical-offset="326" max-vertical-offset="6192">
+        <state line="377" column="33" selection-start="11378" selection-end="11378" vertical-scroll-proportion="0.5732484" vertical-offset="6426" max-vertical-offset="7200">
           <folding />
         </state>
       </provider>

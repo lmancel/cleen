@@ -13,7 +13,7 @@
 
 			<div class="col-6 col-sm-6 col-lg-4">
                 <p>
-                    <img src="{{clothe.photo}}" class="thumbnail">
+                    <img src="{{clothe.photo}}" class="thumbnail" style="max-width:250px;">
                 </p>
 			</div>
           
@@ -22,7 +22,7 @@
             <h6 ng-repeat="material in clothe.materials"> {{material.perc}}% {{material.name}} </h6>
             <hr>
             <h5>Couleur</h5>
-            <h6> {{clothe.color}} </h6>
+            <h6 ng-repeat="color in clothe.color"> {{color}} </h6>
             <hr class="bs-docs-separator">
             <h5>Conseils d'entretien donnés par l'étiquette</h5>
             <h6>

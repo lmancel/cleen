@@ -127,10 +127,32 @@ db.once('open', function callback () {
     var bleu = new Colors({color:'Bleu'});
     var blanc = new Colors({color:'Blanc'});
     var vert = new Colors({color:'Vert'});
+    var noir = new Colors({color:'Noir'});
+    var violet = new Colors({color:'Violet'});
+    var rose = new Colors({color:'Rose'});
+    var rouge = new Colors({color:'Rouge'});
+    var orange = new Colors({color:'Orange'});
+    var jaune= new Colors({color:'Jaune'});
+    var gris = new Colors({color:'Gris'});
+    var marron = new Colors({color:'Marron'});
+    var beige = new Colors({color:'Beige'});
+    var motif = new Colors({color:'Motif'});
+    var multicolore = new Colors({color:'Multicolore'});
 
     bleu.save();
     blanc.save();
     vert.save();
+    noir.save();
+    violet.save();
+    rose.save();
+    rouge.save();
+    orange.save();
+    jaune.save();
+    gris.save();
+    marron.save();
+    beige.save();
+    motif.save();
+    multicolore.save();
 
 //////////////////////////////////////////////////////////////////////////////////
     // Lavage, Repassage, Blanchiment, Sechage, Nettoyage Professionnel
@@ -290,7 +312,7 @@ db.once('open', function callback () {
         model: String,
         photo: String,
         materials: [{name:String, perc:Number}],
-        color: String,
+        color: [String],
         lavage: String,
         blanchiment: String,
         sechage: String,
@@ -308,9 +330,9 @@ db.once('open', function callback () {
         type: 'Robes',
         brand: 'Maje',
         model: 'Madison',
-        photo: 'img/robe3.JPG',
+        photo: 'img/IMG_1159.JPG',
         materials: [{name:'Viscose', perc:60}, {name:'Polyamide', perc:35}, {name:'Elasthanne', perc:5}],
-        color:'Vert',
+        color:['Vert'],
         lavage:'interdit',
         blanchiment:'interdit',
         sechage:'tambour_interdit',
@@ -324,9 +346,9 @@ db.once('open', function callback () {
         type: 'Robes',
         brand: 'Sandro',
         model: 'Maille',
-        photo: 'img/robe1.JPG',
+        photo: 'img/IMG_1155.JPG',
         materials: [{name:'Coton', perc:87}, {name:'Polyester', perc:11}, {name:'Elasthanne', perc:2}],
-        color:'Blanc',
+        color:['Blanc'],
         lavage:'main',
         blanchiment:'interdit',
         sechage:'tambour_interdit',
@@ -334,6 +356,40 @@ db.once('open', function callback () {
         nettPro:'sec'
     });
 
+    var card1 = new Clothes({
+        dbname: 'cardigan-sandro-bleu-',
+        sex: 'women',
+        type: 'Pulls et Cardigans',
+        brand: 'Sandro',
+        model: '',
+        photo: 'img/IMG_1158.JPG',
+        materials: [{name:'Coton', perc:60}, {name:'Viscose', perc:20}, {name:'Polyamide', perc:20},{name:'Soie', perc:100}],
+        color:['Bleu'],
+        lavage:'main',
+        blanchiment:'interdit',
+        sechage:'tambour_interdit',
+        repassage:'faible',
+        nettPro:'sec'
+    });
+
+    var top1 = new Clothes({
+        dbname: 'top-sandro-motif-',
+        sex: 'women',
+        type: 'Tops',
+        brand: 'Sandro',
+        model: '',
+        photo: 'img/IMG_1154.JPG',
+        materials: [{name:'Coton', perc:100}],
+        color:['Motif','Multicolore','Rouge'],
+        lavage:'30',
+        blanchiment:'interdit',
+        sechage:'tambour',
+        repassage:'faible',
+        nettPro:'sec'
+    });
+
     robe1.save();
     robe3.save();
+    card1.save();
+    top1.save();
 });
