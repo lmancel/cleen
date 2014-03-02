@@ -1,0 +1,53 @@
+      
+
+      
+    <div class="container">
+		<div class="row" ng-controller="clothesPage">
+            <div class="container">
+                <div class="span2">
+                    <span ng-bind="clothe.type"></span>
+                    <h6><span ng-bind="clothe.model"></span> - <span ng-bind="clothe.brand"></span></h6>
+                    <hr>
+                </div>
+            </div>
+
+			<div class="col-6 col-sm-6 col-lg-4">
+                <p>
+                    <img src="{{clothe.photo}}" class="thumbnail">
+                </p>
+			</div>
+          
+        <div class="col-6 col-sm-6 col-lg-3">
+            <h5>Composition</h5>
+            <h6 ng-repeat="material in clothe.materials"> {{material.perc}}% {{material.name}} </h6>
+            <hr>
+            <h5>Couleur</h5>
+            <h6> {{clothe.color}} </h6>
+            <hr class="bs-docs-separator">
+            <h5>Conseils d'entretien donnés par l'étiquette</h5>
+            <h6>
+                <img src="{{lavage.pic}}" alt='lavage' title="{{lavage.fullName}}">
+                <img src="{{blanchiment.pic}}" alt='blanchiment' title="{{blanchiment.fullName}}">
+                <img src="{{sechage.pic}}" alt='sechage' title="{{sechage.fullName}}">
+                <img src="{{repassage.pic}}" alt='repassage' title="{{repassage.fullName}}">
+                <img src="{{nettPro.pic}}" alt='nett pro' title="{{nettPro.fullName}}">
+            </h6>
+        </div>
+        </div>
+		<hr>
+        
+        <div class="span12" ng-controller="TodoCtrl">
+            <h4>Commentaires</h4>
+			<ul  ng-repeat="todo in todos">
+					{{todo.task}}		
+					<a href="#robe2" ng-click="remove(todo)">Remove comments</a>
+					<hr>
+			</ul>
+	
+			<label>Commentaire :</label>
+				<input ng-model="newTodo.task" />
+		
+			<a href="#" ng-click="addNew(newTodo)">Add new</a>
+        </div>
+      </div>
+      
