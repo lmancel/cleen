@@ -392,4 +392,8 @@ db.once('open', function callback () {
     robe3.save();
     card1.save();
     top1.save();
+
+
+    console.log("Database filled :)");
+    console.log("You can Ctrl+C");
 });
