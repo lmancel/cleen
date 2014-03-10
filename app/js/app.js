@@ -2,13 +2,6 @@
 var cleen = angular.module('cleen', [ 'ngRoute','cleencontroller']);
 
 
-//
-//app.get('/profile', isLoggedIn, function(req, res) {
-//    console.log(req);
-//    res.render(__dirname + '/app/partials/profile.html', {
-//        user : req.user // get the user out of session and pass to template
-//    });
-//});
 
 
 cleen.config(['$routeProvider',
@@ -39,8 +32,20 @@ cleen.config(['$routeProvider',
                 controller: ''
             }).
             when('/profile', {
-                controller: 'loginController',
-                templateUrl: 'partials/profile.html'
+                controller: 'authController',
+                templateUrl: 'partials/moncompte.html'
+            }).
+            when('/login', {
+                templateUrl: '/partials/login.html',
+                controller: 'loginController'
+            }).
+            when('/signup', {
+                templateUrl: '/partials/signup.html',
+                controller: 'signupController'
+            }).
+            when('/new', {
+                templateUrl: '/partials/new.html',
+                controller: 'authController'
             }).
             otherwise({
                 redirectTo: '/home'

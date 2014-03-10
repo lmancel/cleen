@@ -11,7 +11,7 @@ app.use('/lib/angular', express.static(__dirname + '/app/lib/angular'));
 app.use('/css', express.static(__dirname + '/app/css'));
 app.use('/img', express.static(__dirname + '/app/img'));
 app.use('/partials', express.static(__dirname + '/app/partials'));
-app.use(express.logger('dev'));
+//app.use(express.logger('dev'));
 app.use(express.cookieParser());
 app.use(express.bodyParser());
 // required for passport
@@ -23,8 +23,8 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 var engines = require('consolidate');
 
 app.set('views', __dirname + '/views');
-//app.engine('html', engines.mustache);
-app.set('view engine', 'ejs');
+app.engine('html', engines.mustache);
+//app.set('view engine', 'ejs');
 
 mongoose.connect('mongodb://localhost/cleen');
 
@@ -126,9 +126,6 @@ db.once('open', function callback () {
     // PROFILE SECTION =====================
     app.get('/isAuthenticated', isLoggedIn, function(req, res) {
         res.send(true);
-//        res.render(__dirname + '/app/partials/profile.html', {
-//            user : req.user // get the user out of session and pass to template
-//        });
     });
 
     var clothesSchema = mongoose.Schema({
@@ -222,8 +219,8 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
         return next();
 
-    // if they aren't redirect them to the home page
-    res.redirect('/');
+    // if they aren't redirect them to the login page
+    res.redirect('/login');
 }
 
 // routes =================================

@@ -1,8 +1,6 @@
 <!doctype html>
 <html>
 <head>
-    <title>Node Authentication</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
     <style>
@@ -10,16 +8,14 @@
     </style>
 </head>
 <body>
-<div class="container">
+<div class="container" ng-controller="loginController">
 
     <div class="col-sm-6 col-sm-offset-3">
 
         <h1><span class="fa fa-sign-in"></span> Connexion</h1>
 
         <!-- show any messages that come back with authentication -->
-        <% if (message.length > 0) { %>
-        <div class="alert alert-danger"><%= message %></div>
-        <% } %>
+        <div class='alert alert-danger' ng-show="show"> <span ng-bind='message'></span> </div>
 
         <!-- LOGIN FORM -->
         <form action="/login" method="post">

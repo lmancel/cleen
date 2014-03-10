@@ -142,7 +142,16 @@ cleencontroller.controller('clothesPage', function($scope,$http,$location) {
     $scope.getClothe();
 });
 
-cleencontroller.controller('loginController', function($scope, $http, $location) {
+cleencontroller.controller('alertController', function($scope, $http, $location) {
+    $scope.showAlert = function() {
+        if ($scope.message.length == 0) {
+            style.display = 'none';
+        }
+    };
+    $scope.showAlert();
+});
+
+cleencontroller.controller('authController', function($scope, $http, $location) {
     $scope.isAuthenticated = function() {
         $http.get('/isAuthenticated')
             .success(function(data){
@@ -150,6 +159,39 @@ cleencontroller.controller('loginController', function($scope, $http, $location)
                     $location.url('/login')
                 }
             });
-    }
+    };
     $scope.isAuthenticated();
+});
+
+cleencontroller.controller('loginController', function($scope, $http) {
+    $scope.isLogged = function() {
+        $http.get('/login')
+            .success(function(data){
+                if (data[0].length > 0) {
+                    $scope.message = data[0];
+                    $scope.show = true;
+                }
+                else {
+                    $scope.show = false;
+                }
+            });
+    };
+    $scope.isLogged();
+});
+
+cleencontroller.controller('signupController', function($scope, $http) {
+    $scope.isLogged = function() {
+        $http.get('/signup')
+            .success(function(data){
+                console.log(data);
+                if (data[0].length > 0) {
+                    $scope.message = data[0];
+                    $scope.show = true;
+                }
+                else {
+                    $scope.show = false;
+                }
+            });
+    };
+    $scope.isLogged();
 });
