@@ -1,8 +1,8 @@
 var express = require('express');
-var mongoose = require('mongoose');
-
 var app = express();
-
+var mongoose = require('mongoose');
+var passport = require('passport');
+var flash = require('connect-flash');
 
 
 app.use('/js', express.static(__dirname + '/app/js'));
@@ -11,39 +11,56 @@ app.use('/lib/angular', express.static(__dirname + '/app/lib/angular'));
 app.use('/css', express.static(__dirname + '/app/css'));
 app.use('/img', express.static(__dirname + '/app/img'));
 app.use('/partials', express.static(__dirname + '/app/partials'));
+app.use(express.logger('dev'));
+app.use(express.cookieParser());
+app.use(express.bodyParser());
+// required for passport
+app.use(express.session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
 
+var engines = require('consolidate');
+
+app.set('views', __dirname + '/views');
+//app.engine('html', engines.mustache);
+app.set('view engine', 'ejs');
 
 mongoose.connect('mongodb://localhost/cleen');
+
+require('./config/passport')(passport);
+
+app.get('/', function (req, res) {
+    res.sendfile(__dirname + '/app/index.html');
+});
+
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback () {
 
     var typesSchema = mongoose.Schema({
         type: String
-    })
+    });
     var brandSchema = mongoose.Schema({
         brand: String
-    })
+    });
     var materialsSchema = mongoose.Schema({
         material: String
-    })
+    });
     var colorsSchema = mongoose.Schema({
         color: String
-    })
+    });
 
     var menusSchema = mongoose.Schema({
         menus: [String]
-    })
+    });
 
     var Types = mongoose.model('Types', typesSchema);
     var Brands = mongoose.model('Brands', brandSchema);
     var Materials = mongoose.model('Materials', materialsSchema);
     var Colors = mongoose.model('Colors', colorsSchema);
     var Menus = mongoose.model('Menus', menusSchema);
-
-    app.get('/', function (req, res) {
-        res.sendfile(__dirname + '/app/index.html');
-    });
 
     app.get('/typesM', function (req, res) {
         Types.find(null)
@@ -103,6 +120,15 @@ db.once('open', function callback () {
                     res.json(colors);
                 }
             })
+    });
+
+
+    // PROFILE SECTION =====================
+    app.get('/isAuthenticated', isLoggedIn, function(req, res) {
+        res.send(true);
+//        res.render(__dirname + '/app/partials/profile.html', {
+//            user : req.user // get the user out of session and pass to template
+//        });
     });
 
     var clothesSchema = mongoose.Schema({
@@ -190,6 +216,18 @@ db.once('open', function callback () {
             })
     });
 });
+// route middleware to make sure a user is logged in
+function isLoggedIn(req, res, next) {
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated())
+        return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('/');
+}
+
+// routes =================================
+require('./app/routes.js')(app, passport);
 
 app.listen(8082);
 console.log("Serveur lancé sur le port 8082");
