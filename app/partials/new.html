@@ -1,5 +1,4 @@
-﻿<div ng-controller="authController">
-	<header>
+﻿	<header>
 		<h2>Nouveau vêtement</h2>
 	</header>
 	
@@ -33,7 +32,19 @@
 				</div>
 			</div>
 		</div>
-		
+		<div class="row">
+			<div class="form-group">
+				<div ng-controller="mainNavBar">
+					<label class="col-sm-1 control-label">Composition</label>
+					 <div class="col-sm-2">
+						<select id="simple" class="form-control" >
+								
+								<option ng-repeat ="menu in materials">TODO</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
 		
 		<div class="row">
 		
@@ -56,7 +67,7 @@
 					<select class="form-control">
 						<option>&nbsp;</option>
 						<option ng-repeat ="menu in colors">{{menu.color}}</option>
-						<option>None</option>
+						
 					</select>
 				</div>
 			</div>
@@ -67,27 +78,29 @@
 						<select class="form-control">
 							<option>&nbsp;</option>
 							<option ng-repeat ="menu in colors">{{menu.color}}</option>
-							<option>None</option>
+							
 						</select>
 					</div>
 				</div>
 			
 			</div>	
 		</div>
+		
 		<div class ="row">
 			<div class="form-group">
 				<label class="col-sm-1 control-label">Genre</label>
-					<div class="col-sm-2">
-						<input type="checkbox" id="inlineCheckbox1" value="option1"> Femme
+					<div class="col-sm-2"  ng-hide="checkedM">
+						<input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="checkedW"> Femme
 					</div>
-					<div class="col-sm-2">
-						<input type="checkbox" id="inlineCheckbox2" value="option2"> Homme
+					<div class="col-sm-2" ng-hide="checkedW">
+						<input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="checkedM" > Homme
+						
 					</div>
 				</div>
 		</div>
 		<div class ="row">
 			<div class="form-group">
-				<div ng-controller="mainNavBar">
+				<div ng-controller="mainNavBar" class="check-element animate-show" ng-show="checkedW">
 					<label class="col-sm-1 control-label">Vêtement</label>
 					 <div class="col-sm-2">
 						<select id="simple" class="form-control">
@@ -96,7 +109,7 @@
 						</select>
 					</div>
 				</div>
-				<div ng-controller="mainNavBar">
+				<div ng-controller="mainNavBar" class="check-element animate-show" ng-show="checkedM">
 					<label class="col-sm-1 control-label">Vêtement</label>
 					 <div class="col-sm-2">
 						<select id="simple" class="form-control">
@@ -108,6 +121,61 @@
 			</div>
 		</div>
 	
+		<div class ="row">
+			<div class="form-group">
+				<label class="col-sm-1 control-label">Blanchiment</label>
+					<div class="col-sm-1" >
+						<input type="checkbox" id="inlineCheckbox1" value="option1" > 
+						<img src="img/ico/Blanchiment_autorise.png" alt='lavage' title="Blanchiment autorisé">
+					</div>
+					<div class="col-sm-1">
+						<input type="checkbox" id="inlineCheckbox2" value="option2" " > 
+						<img src="img/ico/Blanchiment_interdit.png" alt='lavage' title="Blanchiment interdit">
+					</div>
+					<div class="col-sm-1">
+						<input type="checkbox" id="inlineCheckbox2" value="option2" " > 
+						<img src="img/ico/Blanchiment_oxygene.png" alt='lavage' title="Blanchiment oxygéné">
+					</div>
+				</div>
+		</div>
+		<div class ="row">
+			<div class="form-group">
+				<label class="col-sm-1 control-label">Lavage</label>
+					<div class="col-sm-1" >
+						<input type="checkbox" id="inlineCheckbox1" value="option1" > 
+						<img src="img/ico/Lavage_30_modere.png" alt='lavage' title="Lavage à 30°C modéré">
+					</div>
+					<div class="col-sm-1">
+						<input type="checkbox" id="inlineCheckbox2" value="option2" " > 
+						<img src="img/ico/Lavage_30_normal.png" alt='lavage' title="Lavage à 30°C normal">
+					</div>
+					<div class="col-sm-1">
+						<input type="checkbox" id="inlineCheckbox2" value="option2" " > 
+						<img src="img/ico/Lavage_30_tres-modere.png" alt='lavage' title="Lavage à 30°C  trés modéré">
+					</div>
+					<div class="col-sm-1" >
+						<input type="checkbox" id="inlineCheckbox1" value="option1" > 
+						<img src="img/ico/Lavage_40_modere.png" alt='lavage' title="Lavage à 40°C modéré">
+					</div>
+					<div class="col-sm-1">
+						<input type="checkbox" id="inlineCheckbox2" value="option2" " > 
+						<img src="img/ico/Lavage_40_normal.png" alt='lavage' title="Lavage à 40°C normal">
+					</div>
+					<div class="col-sm-1">
+						<input type="checkbox" id="inlineCheckbox2" value="option2" " > 
+						<img src="img/ico/Lavage_40_tres_modere.png" alt='lavage' title="Lavage à 40°C  trés modéré">
+					</div>
+					<div class="col-sm-1">
+						<input type="checkbox" id="inlineCheckbox2" value="option2" " > 
+						<img src="img/ico/Lavage_main.png" alt='lavage' title="Lavage à la main">
+					</div>
+					<div class="col-sm-1">
+						<input type="checkbox" id="inlineCheckbox2" value="option2" " > 
+						<img src="img/ico/nepaslaver.png" alt='lavage' title="Ne pas laver !">
+					</div>
+			</div>
+		</div>
+		
 		<div class="row">
 			<div class="form-group">
 				<label class="col-sm-1 control-label">Commentaire</label>
@@ -115,11 +183,9 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<input type="submit" id="submit" value="Submit" />
+			
 			<button type="submit" class="btn btn-primary">Laver !</button>
 		</div>
 	<form>
 	
-</div>
-
 </div>
