@@ -8,19 +8,39 @@ cleen.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
             when('/clothes/:sex/:type', {
-                templateUrl: 'partials/robes.html',
+                templateUrl: 'partials/attribute.html',
+                controller: 'clothesController'
+            }).
+            when('/brand', {
+                templateUrl: 'partials/brand.html',
                 controller: 'clothesController'
             }).
             when('/brand/:brand', {
-                templateUrl: 'partials/robes.html',
+                templateUrl: 'partials/attribute.html',
+                controller: 'clothesController'
+            }).
+            when('/materials', {
+                templateUrl: 'partials/attribute.html',
                 controller: 'clothesController'
             }).
             when('/materials/:materials', {
-                templateUrl: 'partials/robes.html',
+                templateUrl: 'partials/attribute.html',
+                controller: 'clothesController'
+            }).
+            when('/color', {
+                templateUrl: 'partials/colors.html',
                 controller: 'clothesController'
             }).
             when('/color/:color', {
-                templateUrl: 'partials/robes.html',
+                templateUrl: 'partials/attribute.html',
+                controller: 'clothesController'
+            }).
+            when('/clothes/men', {
+                templateUrl: 'partials/clothes_M.html',
+                controller: 'clothesController'
+            }).
+            when('/clothes/women', {
+                templateUrl: 'partials/clothes_F.html',
                 controller: 'clothesController'
             }).
             when('/home', {
@@ -28,7 +48,7 @@ cleen.config(['$routeProvider',
                 controller: ''
             }).
             when('/clothes/:sex/:type/:nameid', {
-                templateUrl: 'partials/robe2.html',
+                templateUrl: 'partials/clothe.html',
                 controller: ''
             }).
             when('/profile', {
@@ -46,6 +66,10 @@ cleen.config(['$routeProvider',
             when('/new', {
                 templateUrl: '/partials/new.html',
                 controller: 'authController'
+            }).
+            when('/faq', {
+                templateUrl: 'partials/faq.html',
+                controller: ''
             }).
             otherwise({
                 redirectTo: '/home'

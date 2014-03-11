@@ -28,7 +28,7 @@ function TodoCtrl($scope) {
                .fail(function(err) {
                    alert("Error deleting item");
                });
-        }
+        };
 
         $scope.addNew = function (todo) {
             Todo.save(todo).then(function (todo) {
@@ -38,7 +38,8 @@ function TodoCtrl($scope) {
                 });
             });
         };
-    };
+    }
+
 cleencontroller.controller('mainNavBar', function ($scope, $http) {
     $scope.makeMenus=function(){
         $http.get('/typesM')
@@ -140,15 +141,6 @@ cleencontroller.controller('clothesPage', function($scope,$http,$location) {
             });
     };
     $scope.getClothe();
-});
-
-cleencontroller.controller('alertController', function($scope, $http, $location) {
-    $scope.showAlert = function() {
-        if ($scope.message.length == 0) {
-            style.display = 'none';
-        }
-    };
-    $scope.showAlert();
 });
 
 cleencontroller.controller('authController', function($scope, $http, $location) {
