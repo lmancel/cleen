@@ -52,7 +52,7 @@ cleen.config(['$routeProvider',
                 controller: ''
             }).
             when('/profile', {
-                controller: 'authController',
+                controller: '',
                 templateUrl: 'partials/moncompte.html'
             }).
             when('/login', {

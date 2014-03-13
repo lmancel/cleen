@@ -4,7 +4,7 @@
 		<h2>Mon compte</h2>
 	</header>
 	
-	<div class="container">
+	<div class="container" ng-controller="profileController">
 		<div class="row-fluid">
 	
 			<div class="span12">				
@@ -17,16 +17,8 @@
 				<div class="span8">
                     <a href="/logout" class="btn btn-default btn-sm">Déconnexion</a>
 					<div class="span8">
-						<div class="span3">Nom : </div>
-						<div class="span3">Dupont</div>
-					</div>
-					<div class="span8">
-						<div class="span3">Prénom : </div>
-						<div class="span3">Justine</div>
-					</div>
-					<div class="span8">
 						<div class="span3">E-mail : </div>
-						<div class="span3">justine.dupont@gmail.com</div>
+						<div class="span3">{{email}}</div>
 					</div>
 				</div>
 			</div>

@@ -172,18 +172,45 @@ cleencontroller.controller('loginController', function($scope, $http) {
 });
 
 cleencontroller.controller('signupController', function($scope, $http) {
-    $scope.isLogged = function() {
-        $http.get('/signup')
+//    $scope.isLogged = function() {
+//        $http.get('/signup')
+//            .success(function(data){
+//                if (data[0].length > 0) {
+//                    $scope.message = data[0];
+//                    $scope.show = true;
+//                }
+//                else {
+//                    $scope.show = false;
+//                }
+//            });
+//    };
+    $scope.user = {};
+    $scope.newUser = function() {
+        $http({
+            method: 'POST',
+            url : '/signup',
+            data: $scope.user
+        }, function(message) {
+            if (message[0].length > 0) {
+                $scope.message = data[0];
+                $scope.show = true;
+            }
+            else {
+                $scope.show = false;
+            }
+        })
+    };
+//    $scope.isLogged();
+    $scope.newUser();
+});
+
+cleencontroller.controller('profileController', function($scope, $http) {
+
+        $http.get('/profile/1/2/3/4/5')
             .success(function(data){
-                console.log(data);
-                if (data[0].length > 0) {
-                    $scope.message = data[0];
-                    $scope.show = true;
-                }
-                else {
-                    $scope.show = false;
+                if (data != 'err') {
+                    $scope.email = data;
                 }
             });
-    };
-    $scope.isLogged();
+
 });

@@ -20,13 +20,17 @@
 
 	<!-- LOGIN FORM -->
 	<form action="/signup" method="post">
+        <div class="form-group">
+            <label>Pseudo</label>
+            <input type="text" class="form-control" name="pseudo" ng-model="user.pseudo">
+        </div>
 		<div class="form-group">
 			<label>Email</label>
-			<input type="text" class="form-control" name="email">
+			<input type="text" class="form-control" name="email" ng-model="user.email">
 		</div>
 		<div class="form-group">
 			<label>Mot de passe</label>
-			<input type="password" class="form-control" name="password">
+			<input type="password" class="form-control" name="password" ng-model="user.password">
 		</div>
 
 		<button type="submit" class="btn btn-primary btn-lg">Inscription</button>
