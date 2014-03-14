@@ -214,7 +214,7 @@ db.once('open', function callback () {
     });
 
     app.get('/profile/1/2/3/4/5', function(req,res) {
-        res.send(req.user.local.email);
+        res.send(req.user.local);
     });
 
 });

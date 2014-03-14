@@ -1080,6 +1080,6 @@ db.once('open', function callback () {
     veste2.save();
     
 
-    console.log("Database filled :)");
-    console.log("You can Ctrl+C");
+
 });
+process.exit();

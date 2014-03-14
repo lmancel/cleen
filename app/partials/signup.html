@@ -9,36 +9,37 @@
 	</style>
 </head>
 <body>
-<div class="container" ng-controller="signupController">
+<div class="container">
 
 <div class="col-sm-6 col-sm-offset-3">
 
 	<h1><span class="fa fa-sign-in"></span> Inscription</h1>
 
 	<!-- show any messages that come back with authentication -->
-    <div class='alert alert-danger' ng-show="show"> <span ng-bind='message'></span> </div>
+    <div class='alert alert-danger' ng-controller="signupAlertController" ng-show="show"> <span ng-bind='message'></span> </div>
 
-	<!-- LOGIN FORM -->
-	<form action="/signup" method="post">
-        <div class="form-group">
-            <label>Pseudo</label>
-            <input type="text" class="form-control" name="pseudo" ng-model="user.pseudo">
-        </div>
-		<div class="form-group">
-			<label>Email</label>
-			<input type="text" class="form-control" name="email" ng-model="user.email">
-		</div>
-		<div class="form-group">
-			<label>Mot de passe</label>
-			<input type="password" class="form-control" name="password" ng-model="user.password">
-		</div>
+    <!-- LOGIN FORM -->
+    <div ng-controller="signupController">
+        <form action="/signup" method="post">
+            <div class="form-group">
+                <label>Pseudo</label>
+                <input type="text" class="form-control" name="pseudo" ng-model="user.pseudo">
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" name="email" ng-model="user.email">
+            </div>
+            <div class="form-group">
+                <label>Mot de passe</label>
+                <input type="password" class="form-control" name="password" ng-model="user.password">
+            </div>
 
-		<button type="submit" class="btn btn-primary btn-lg">Inscription</button>
-	</form>
-
+            <button type="submit" class="btn btn-primary btn-lg">Inscription</button>
+        </form>
+    </div>
 	<hr>
 
-	<p>Déjà un compte? <a href="/login">Connexion</a></p>
+	<p>Déjà un compte? <a href="/#/login">Connexion</a></p>
     <p>Ou retour au <a href="/">menu principal</a>.</p>
 
 </div>
