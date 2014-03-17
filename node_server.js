@@ -177,6 +177,7 @@ db.once('open', function callback () {
                 })
         }
     });
+
     app.get('/:id', function(req,res) {
         Clothes.find(null)
             .where('_id').equals(req.params.id)
@@ -215,6 +216,23 @@ db.once('open', function callback () {
 
     app.get('/profile/1/2/3/4/5', function(req,res) {
         res.send(req.user.local);
+    });
+
+    var iconSchema = mongoose.Schema({
+        path: String
+    });
+    var Icons = mongoose.model('Icons', iconSchema);
+
+    app.get('/userImages/1/2/3/4/5/6', function(req, res) {
+        Icons.find(null)
+            .exec(function(err, icons) {
+                if (err==true) {
+                    res.send('err');
+                }
+                else {
+                    res.send(icons);
+                }
+            })
     });
 
 });

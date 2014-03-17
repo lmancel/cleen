@@ -19,19 +19,54 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="form-group">
+			
 				
 					<label class="col-sm-2 control-label" for="simple"> Filtrez! </label>
+					
 						<div class="col-sm-3">
-							<input type="text" class="form-control" ng-model="searchText" placeholder="Affinez votre recherche !">
-						</div>
-					<label class="col-sm-2 control-label" for="simple"> Filtrez encore! </label>
-						<div class="col-sm-3">
-							<input type="text" class="form-control" ng-model="searchText2" placeholder="Affinez encore votre recherche !">
-						</div>
-			</div>	
-			
-		</div>
+							<input type="text" class="form-control" ng-model="searchText1" placeholder="Affinez votre recherche !">
+							<input ng-show="showtextbox1" type="text" class="form-control" ng-model="searchText2" placeholder="Affinez encore votre recherche !">
+							<input ng-show="showtextbox2" type="text" class="form-control" ng-model="searchText3" placeholder="Affinez encore votre recherche !">
+							<input ng-show="showtextbox3" type="text" class="form-control" ng-model="searchText4" placeholder="Affinez encore votre recherche !">
+							<input ng-show="showtextbox4" type="text" class="form-control" ng-model="searchText5" placeholder="Affinez encore votre recherche !">
+							<input ng-show="showtextbox5" type="text" class="form-control" ng-model="searchText6" placeholder="Affinez encore votre recherche !">
+							<input ng-show="showtextbox6" type="text" class="form-control" ng-model="searchText7" placeholder="Affinez encore votre recherche !">
+							<input ng-show="showtextbox7" type="text" class="form-control" ng-model="searchText8" placeholder="Affinez encore votre recherche !">
+							<input ng-show="showtextbox8" type="text" class="form-control" ng-model="searchText9" placeholder="Affinez encore votre recherche !">
+							<input ng-show="showtextbox9" type="text" class="form-control" ng-model="searchText10" placeholder="Affinez encore votre recherche !">
+							<div class="col-sm-3">
+								<div ng-hide="hide1">
+									<button ng-click="show2 = true;hide1=true;showtextbox1=true"  type="checkbox"  value="option1">+</button>
+								</div>
+								<div ng-show="show2">
+									<button ng-click="show3 = true;show2=false;showtextbox2=true"type="checkbox"  value="option2" >+</button>
+								</div>	
+								<div ng-show="show3">
+									<button ng-click="show4 = true;show3=false;showtextbox3=true"type="checkbox"  value="option2" >+</button>
+								</div>
+								<div ng-show="show4">
+									<button ng-click="show5 = true;show4=false;showtextbox4=true"type="checkbox"  value="option1">+</button>
+								</div>
+								<div ng-show="show5">
+									<button ng-click="show6 = true;show5=false;showtextbox5=true"type="checkbox"  value="option2" >+</button>
+								</div>	
+								<div ng-show="show6">
+									<button ng-click="show7 = true;show6=false;showtextbox6=true"type="checkbox"  value="option2" >+</button>
+								</div>
+								<div ng-show="show7">
+									<button ng-click="show8 = true;show7=false;showtextbox7=true" type="checkbox"  value="option1">+</button>
+								</div>
+								<div ng-show="show8">
+									<button ng-click="show9 = true;show8=false;showtextbox8=true"type="checkbox"  value="option2" >+</button>
+								</div>	
+								<div ng-show="show9">
+									<button ng-click="show9=false;showtextbox9=true"type="checkbox"  value="option2" >+</button>
+								</div>
+							</div>
+						
+						</div>	
+		</div>	
+		</br>
 		<div class="row-fluid">
 			
 			<div class="span2"> 
@@ -71,10 +106,12 @@
 			<div class="span10">	
 				<div  class="form-group" ng-controller="clothesController">	
 					<div class="row">
-					   <div ng-repeat = "clothe in clothes | filter:searchText | filter:searchText2" class="col-6 col-sm-6 col-lg-4">
+					   <div ng-repeat = "clothe in clothes | filter:searchText1| filter:searchText2| filter:searchText3| filter:searchText4| filter:searchText5| filter:searchText6| filter:searchText7| filter:searchText8| filter:searchText9| filter:searchText10" class="col-6 col-sm-6 col-lg-4">
 						   <a ng-href="#/clothes/{{clothe.sex}}/{{clothe.type}}/{{clothe.dbname}}{{clothe._id}}">
-							   <img class="thumbnail" style="max-width:250px;max-height:250px;" src="{{clothe.photo}}" />
-							   <p style="font-family:Calibri;">{{clothe.brand}} - {{clothe.type}} - {{clothe.model}} -  <h6 style="font-family:Calibri;" ng-repeat="color in clothe.color">{{color}}</h6></p>
+							   <figure>
+								  <img class="thumbnail" style="max-width:250px;max-height:250px;" src="{{clothe.photo}}" />
+								  <figcaption>{{clothe.type}} - {{clothe.model}} - {{clothe.brand}}</figcaption>
+								</figure>							  
 						   </a>
 					   </div>
 					</div>				  

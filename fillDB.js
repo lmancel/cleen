@@ -6,7 +6,6 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function callback () {
 
-
 ///////////////////////////////////////////////////////////////
     // Création des menus
 
@@ -274,7 +273,7 @@ db.once('open', function callback () {
     });
     var exclu = new Clean({
         forwhat: 'repassage',
-        key: 'exclu',
+        key: 'interdit',
         pic: '/img/ico/Repassage_interdit.png',
         fullName: 'Repassage exclu'
     });
@@ -307,6 +306,58 @@ db.once('open', function callback () {
     sec.save();
     secinterdit.save();
     pro.save();
+//////////////////////////////////////////////////////////////////////////////////
+    // Icônes utilisateur
+
+    var iconSchema = mongoose.Schema({
+        path: String
+    });
+
+    var Icons = mongoose.model('Icons', iconSchema);
+
+    Icons.remove({}, function(err) {});
+
+    var ico1 = new Icons({path : '/img/users/userf1.png'});
+    var ico2 = new Icons({path : '/img/users/userf2.png'});
+    var ico3 = new Icons({path : '/img/users/userf3.png'});
+    var ico4 = new Icons({path : '/img/users/userf4.png'});
+    var ico5 = new Icons({path : '/img/users/userf5.png'});
+    var ico6 = new Icons({path : '/img/users/userf6.png'});
+    var ico7 = new Icons({path : '/img/users/userf7.png'});
+    var ico8 = new Icons({path : '/img/users/userf8.png'});
+    var ico9 = new Icons({path : '/img/users/userf9.png'});
+    var ico10 = new Icons({path : '/img/users/userf10.png'});
+    var ico11 = new Icons({path : '/img/users/userf11.png'});
+    var ico12 = new Icons({path : '/img/users/userf12.png'});
+    var ico13 = new Icons({path : '/img/users/userf13.png'});
+    var ico14 = new Icons({path : '/img/users/userm1.png'});
+    var ico15 = new Icons({path : '/img/users/userm2.jpg'});
+    var ico16 = new Icons({path : '/img/users/userm3.png'});
+    var ico17 = new Icons({path : '/img/users/userm4.png'});
+    var ico18 = new Icons({path : '/img/users/userm5.jpg'});
+    var ico19 = new Icons({path : '/img/users/userm6.png'});
+    var ico20 = new Icons({path : '/img/users/userm7.jpg'});
+
+    ico1.save();
+    ico2.save();
+    ico3.save();
+    ico4.save();
+    ico5.save();
+    ico6.save();
+    ico7.save();
+    ico8.save();
+    ico9.save();
+    ico10.save();
+    ico11.save();
+    ico12.save();
+    ico13.save();
+    ico14.save();
+    ico15.save();
+    ico16.save();
+    ico17.save();
+    ico18.save();
+    ico19.save();
+    ico20.save();
 
 //////////////////////////////////////////////////////////////////////////////////
     // Modèles vêtements
@@ -732,7 +783,7 @@ db.once('open', function callback () {
         lavage:'interdit',
         blanchiment:'interdit',
         sechage:'tambour_interdit',
-        repassage:'exclu',
+        repassage:'interdit',
         nettPro:'sec'
     });
 
@@ -837,7 +888,7 @@ db.once('open', function callback () {
         sex: 'women',
         type: 'Robes',
         brand: 'Maje',
-        model: 'Edivasx',
+        model: 'Edivas',
         photo: 'img/robe_edivas_blanc_maje.jpg',
         materials: [{name:'Polyester', perc:100},{name:'Coton', perc:95},{name:'Elasthanne', perc:5}],
         color:['Blanc'],
@@ -1078,8 +1129,7 @@ db.once('open', function callback () {
 
     veste1.save();
     veste2.save();
-    
 
 
+    console.log("Database filled, exiting now");
 });
-process.exit();

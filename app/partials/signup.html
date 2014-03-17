@@ -9,7 +9,7 @@
 	</style>
 </head>
 <body>
-<divclass="container">
+<div class="container">
 
 <div class="col-sm-6 col-sm-offset-3">
 
@@ -25,9 +25,24 @@
                 <label>Pseudo</label>
                 <input type="text" class="form-control" name="pseudo" ng-model="user.pseudo">
             </div>
-            <div class="form-group">
+
+            <div class='form-group' style="height: 170px" ng-controller='usersImgController'>
+                <div style="left: 0; font-weight: bold">Avatar</div>
+                <div class="col-sm-1" ng-repeat="icon in images">
+                    <input type="checkbox" name="avatar" ng-model="user.avatar" ng-true-value="{{icon._id}}" ng-false-value="">
+                    <img style="max-width: 50px; max-height: 50px" src="{{icon.path}}"/>
+                </div>
+                <!--<div class="col-sm-1">-->
+                    <!--<input type="checkbox" name="avatar" ng-model="user.avatar" ng-true-value="654531641654616" ng-false-value="">-->
+                    <!--<img style="max-width: 50px; max-height: 50px" src="/img/users/userf1.png"/>-->
+                <!--</div>-->
+                    {{user.avatar}}
+            </div>
+
+            <div class="form-group" style="margin-top: 20px">
                 <label>Email</label>
                 <input type="text" class="form-control" name="email" ng-model="user.email">
+                {{user.email}}
             </div>
             <div class="form-group">
                 <label>Mot de passe</label>

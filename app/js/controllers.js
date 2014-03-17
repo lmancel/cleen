@@ -171,14 +171,27 @@ cleencontroller.controller('loginController', function($scope, $http) {
     $scope.isLogged();
 });
 
+cleencontroller.controller('usersImgController', function($scope, $http) {
+    $scope.images = function() {
+        $http.get('/userImages/1/2/3/4/5/6')
+            .success(function(images) {
+                if (images.length > 0) {
+                    $scope.images = images;
+                }
+            });
+    };
+    $scope.images();
+});
+
 cleencontroller.controller('signupController', function($scope, $http) {
     $scope.user = {};
     $scope.newUser = function() {
-        $http({
-            method: 'POST',
-            url : '/signup',
-            data: $scope.user
-        })
+//        $http({
+//            method: 'POST',
+//            url : '/signup',
+//            data: $scope.user
+//        })
+        $http.post('/signup', $scope.user);
     };
     $scope.newUser();
 });
