@@ -1,0 +1,12 @@
+﻿	<header>
+		<h2> Matières</h2>
+	</header>
+	
+	<div class="span6" ng-controller="mainNavBar"	>
+			<ul class="categorie">
+						
+						 <li ng-repeat ="menu in materials"><a ng-href="#/materials/{{menu.material}}">{{menu.material}}</a><hr></li>
+			</ul>		
+	</div>				
+
+	
