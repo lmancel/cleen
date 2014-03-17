@@ -172,10 +172,21 @@ cleencontroller.controller('loginController', function($scope, $http) {
 });
 
 cleencontroller.controller('signupController', function($scope, $http) {
+    $scope.user = {};
+    $scope.newUser = function() {
+        $http({
+            method: 'POST',
+            url : '/signup',
+            data: $scope.user
+        })
+    };
+    $scope.newUser();
+});
+
+cleencontroller.controller('signupAlertController', function($scope, $http) {
     $scope.isLogged = function() {
         $http.get('/signup')
             .success(function(data){
-                console.log(data);
                 if (data[0].length > 0) {
                     $scope.message = data[0];
                     $scope.show = true;
@@ -186,4 +197,17 @@ cleencontroller.controller('signupController', function($scope, $http) {
             });
     };
     $scope.isLogged();
+});
+
+cleencontroller.controller('profileController', function($scope, $http) {
+
+        $http.get('/profile/1/2/3/4/5')
+            .success(function(data){
+                console.log(data);
+                if (data != 'err') {
+                    $scope.pseudo = data.pseudo;
+                    $scope.email = data.email;
+                }
+            });
+
 });
