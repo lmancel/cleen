@@ -185,6 +185,18 @@ cleencontroller.controller('usersImgController', function($scope, $http) {
 
 cleencontroller.controller('signupController', function($scope, $http) {
     $scope.user = {};
+    $scope.selection = [];
+    $scope.toggleSelection = function toggleSelection(fruitName) {
+        var idx = $scope.selection.indexOf(fruitName);
+        if (idx > -1) {
+            $scope.selection.splice(idx, 1);
+        }
+        else {
+            $scope.selection.push(fruitName);
+            $scope.user.avatar = $scope.selection[0];
+        }
+    };
+
     $scope.newUser = function() {
 //        $http({
 //            method: 'POST',

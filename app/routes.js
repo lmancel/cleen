@@ -21,7 +21,7 @@ module.exports = function(app, passport) {
 
     app.post('/signup', function(req, res){
         if (req.body.email != undefined && req.body.pseudo != undefined && req.body.password != undefined) {
-            console.log("body   :  " + req.body.pseudo);
+            console.log('pseudo  ' + req.body.pseudo);
             console.log("Avatar reference  :  " + req.body.avatar);
             if (req.body.email != "" && req.body.pseudo != "" && req.body.password != "") {
                 User.findOne({ 'local.email' :  req.body.email }, function(err, user) {
