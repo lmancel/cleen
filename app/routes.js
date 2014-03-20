@@ -6,7 +6,7 @@ module.exports = function(app, passport) {
     });
 
     app.post('/login', passport.authenticate('local-login', {
-        successRedirect : '/#/profile',
+        successRedirect : '/',
         failureRedirect : '#/login',
         failureFlash : true
     }));
@@ -21,8 +21,6 @@ module.exports = function(app, passport) {
 
     app.post('/signup', function(req, res){
         if (req.body.email != undefined && req.body.pseudo != undefined && req.body.password != undefined) {
-            console.log('pseudo  ' + req.body.pseudo);
-            console.log("Avatar reference  :  " + req.body.avatar);
             if (req.body.email != "" && req.body.pseudo != "" && req.body.password != "") {
                 User.findOne({ 'local.email' :  req.body.email }, function(err, user) {
                     if (err) {
@@ -53,11 +51,12 @@ module.exports = function(app, passport) {
                                         newUser.local.pseudo = req.body.pseudo;
                                         newUser.local.email = req.body.email;
                                         newUser.local.password = newUser.generateHash(req.body.password);
+                                        newUser.local.avatar = req.body.avatar;
 
                                         newUser.save(function(err) {
                                             if (err)
                                                 throw err;
-                                            res.redirect('/#/login');
+                                            res.redirect('/');
                                         });
                                     }
                                 }

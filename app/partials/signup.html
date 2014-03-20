@@ -29,7 +29,8 @@
             <div class='form-group' style="height: 170px" ng-controller='usersImgController'>
                 <div style="left: 0; font-weight: bold">Avatar</div>
                 <div class="col-sm-1" ng-repeat="icon in images">
-                    <input type="checkbox" name="selectedIcon" value="{{icon._id}}" ng-checked="selection.indexOf(icon._id) > -1" ng-click="toggleSelection(icon._id)" >
+                    <!--<input type="checkbox" name="selectedIcon" value="{{icon._id}}" ng-checked="selection.indexOf(icon._id) > -1" ng-click="toggleSelection(icon._id)" >-->
+                    <input type="checkbox" name="selectedIcon" ng-model="selectedIcon" ng-true-value="{{icon._id}}" ng-false-value="" ng-click="toggleSelection(icon._id)">
                     <img style="max-width: 50px; max-height: 50px" src="{{icon.path}}"/>
                 </div>
                 <input type="text" class="form-control" name="avatar" ng-model="user.avatar" ng-show="no">
