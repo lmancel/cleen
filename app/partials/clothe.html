@@ -1,129 +1,130 @@
-﻿<script>
-    function Ctrl($scope,$location) {
-        var url =$location.path();
+﻿      
+<script>
+  function Ctrl($scope,$location) {
+	        var url =$location.path();
+       
+			$scope.url=url;  
+					
+			console.log(url);
+            };
+	
+ </script>
+ 
+ 
+ <div ng-controller="mainNavBar">
+	<header ng-controller="clothesPage">
+		 <h2> <span ng-bind="clothe.type"></span> <span ng-bind="clothe.model"></span> <span ng-bind="clothe.brand"></span></h2>
+	</header>
+	
+	<div class="container" ng-controller="mainNavBar">
+		<div class="row-fluid">
+			<div class="span2"> 
+				<ul class="menu-left">
+					<div class="nav-header"><a href="#">Marques</a></div>
+					<li ng-repeat ="menu in brands"><a ng-href="#/brand/{{menu.brand}}">{{menu.brand}}</a><hr></li>											
+				</ul>
 
-        $scope.url=url;
-
-        console.log(url);
-    };
-
-</script>
-
-
-<div ng-controller="mainNavBar">
-    <header ng-controller="clothesPage">
-        <h2><span ng-bind="clothe.model"></span> - <span ng-bind="clothe.brand"></span></h2>
-    </header>
-
-    <div class="container" ng-controller="mainNavBar">
-        <div class="row-fluid">
-            <div class="span2">
-                <ul class="menu-left">
-                    <div class="nav-header"><a href="#">Marques</a></div>
-                    <li ng-repeat ="menu in brands"><a ng-href="#/brand/{{menu.brand}}">{{menu.brand}}</a><hr></li>
-                </ul>
-
-                <hr>
-
-                <ul class="menu-left">
-                    <div class="nav-header"><a href="vetement_femme_menu.html">Femme</a></div>
-                    <li ng-repeat ="menu in typesW"><a ng-href="#/clothes/women/{{menu.type}}">{{menu.type}}</a><hr></li>
-                </ul>
-
-                <hr>
-
-                <ul class="menu-left">
-                    <div class="nav-header"><a href="#">Homme</a></div>
-                    <li ng-repeat ="menu in typesM"><a ng-href="#/clothes/men/{{menu.type}}">{{menu.type}}</a><hr></li>
-                </ul>
-
-                <hr>
-
-                <ul class="menu-left">
-                    <div class="nav-header"><a href="#">Matières</a></div>
-                    <li ng-repeat ="menu in materials"><a ng-href="#/materials/{{menu.material}}">{{menu.material}}</a><hr></li>
-
-                </ul>
-
-                <hr>
-
-                <ul class="menu-left">
-                    <div class="nav-header"><a href="couleur_menu.html">Couleurs</a></div>
-                    <li ng-repeat ="menu in colors"><a ng-href="#/color/{{menu.color}}">{{menu.color}}</a></li>
-                </ul>
-
-            </div>
-
-            <div class="span10" ng-controller="clothesPage">
-                <div class="span5">
-                    <img class="img-vetement" src="{{clothe.photo}}"></img>
-                </div>
-
-                <div class="span5" ng-controller="clothesPage">
-                    <ul class="description-vetement">
-                        <div class="nav-header">Composition</div>
-                        <h6 ng-repeat="material in clothe.materials"> {{material.perc}}% {{material.name}} </h6>
-
-                        <hr>
-
-                        <div class="nav-header">Couleur</div>
-                        <h6 ng-repeat="color in clothe.color"> {{color}} </h6>
-
-                        <hr>
-
-                        <div class="nav-header">Conseils d'entretien donnés par l'étiquette</div>
-                        <h6>
-                            <img src="{{lavage.pic}}" alt='lavage' title="{{lavage.fullName}}">
-                            <img src="{{blanchiment.pic}}" alt='blanchiment' title="{{blanchiment.fullName}}">
-                            <img src="{{sechage.pic}}" alt='sechage' title="{{sechage.fullName}}">
-                            <img src="{{repassage.pic}}" alt='repassage' title="{{repassage.fullName}}">
-                            <img src="{{nettPro.pic}}" alt='nett pro' title="{{nettPro.fullName}}">
-                        </h6>
-                    </ul>
-                </div>
-            </div>
-
-
-            <div class="span10" ng-controller="TodoCtrl">
-                <div class="commentaires"> Commentaires</div>
-                <ul ng-repeat="todo in todos">
-                    <div class="span11">
-                        <div class="span1">
-                            <img class="img-user" src="clara.png"></img>
-                        </div>
-
-                        <div class="span6">
-                            <div class="nom-user-commentaire">{{user.id}} id </div>
-                            <h6>{{todo.task}}</h6>
-                        </div>
-
-                        <div class="span3">
-                            <div class="date-commentaire"> {{comment.date}} date</div>
-                            <div class="date-commentaire"> {{comment.time}} time </div>
-                        </div>
-                        <div class="span1">
-                            <a ng-controller="Ctrl" href=#{{url}} ng-click="remove(todo)">DELETE</a>
-                        </div>
-                    </div>
-                    <div class="span11">
-                        <hr>
-                    </div>
-                </ul>
-
-
-
-
-
-
-                <div class="form-group">
-                    <textarea class="form-control" rows="3" ng-model="newTodo.task"></textarea>
-                </div>
-
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary"> <a ng-controller="Ctrl" href=#{{url}} ng-click="addNew(newTodo)" style="color:white;">Commenter </a></button>
-                </div>
-            </div>
-
-        </div>
-    </div>
+				<hr>
+				
+				<ul class="menu-left">
+					<div class="nav-header"><a href="vetement_femme_menu.html">Femme</a></div>
+					<li ng-repeat ="menu in typesW"><a ng-href="#/clothes/women/{{menu.type}}">{{menu.type}}</a><hr></li>											
+				</ul>
+				
+				<hr>
+				
+				<ul class="menu-left">
+					<div class="nav-header"><a href="#">Homme</a></div>
+					<li ng-repeat ="menu in typesM"><a ng-href="#/clothes/men/{{menu.type}}">{{menu.type}}</a><hr></li>											
+				</ul>
+					
+				<hr>
+								
+				<ul class="menu-left">
+					<div class="nav-header"><a href="#">Matières</a></div>
+					<li ng-repeat ="menu in materials"><a ng-href="#/materials/{{menu.material}}">{{menu.material}}</a><hr></li>
+															
+				</ul>
+				
+				<hr>
+				
+				<ul class="menu-left">
+					<div class="nav-header"><a href="couleur_menu.html">Couleurs</a></div>
+					<li ng-repeat ="menu in colors"><a ng-href="#/color/{{menu.color}}">{{menu.color}}</a></li>									
+				</ul>
+				
+			</div>
+			
+			<div class="span10" ng-controller="clothesPage">
+				<div class="span5">
+					<img class="img-vetement" src="{{clothe.photo}}"></img>
+				</div>
+				
+				<div class="span5" ng-controller="clothesPage"> 
+					<ul class="description-vetement">
+						<div class="nav-header">Composition</div>
+						<h6 ng-repeat="material in clothe.materials"> {{material.perc}}% {{material.name}} </h6>		
+						
+						<hr>
+						
+						<div class="nav-header">Couleur</div>
+						<h6 ng-repeat="color in clothe.color"> {{color}} </h6>		
+						
+						<hr>	
+						
+						<div class="nav-header">Conseils d'entretien donnés par l'étiquette</div>
+						 <h6>
+							<img src="{{lavage.pic}}" alt='lavage' title="{{lavage.fullName}}">
+							<img src="{{blanchiment.pic}}" alt='blanchiment' title="{{blanchiment.fullName}}">
+							<img src="{{sechage.pic}}" alt='sechage' title="{{sechage.fullName}}">
+							<img src="{{repassage.pic}}" alt='repassage' title="{{repassage.fullName}}">
+							<img src="{{nettPro.pic}}" alt='nett pro' title="{{nettPro.fullName}}">
+						</h6>		
+					</ul>
+				</div>	
+			</div>
+			
+			
+			<div class="span10" ng-controller="TodoCtrl">
+				<div class="commentaires"> Commentaires</div>
+					<ul  ng-repeat="todo in todos">
+						<div class="span11">
+							<div class="span1">
+								<img class="img-user" src="clara.png"></img>
+							</div>
+						
+							<div class="span6">
+								<div class="nom-user-commentaire">{{user.id}} id </div>
+								<h6>{{todo.task}}</h6>
+							</div>
+							
+							<div class="span3">
+								<div class="date-commentaire"> {{comment.date}} date</div>
+								<div class="date-commentaire"> {{comment.time}} time </div>
+							</div>
+							<div class="span1">
+								<a ng-controller="Ctrl" href=#{{url}} ng-click="remove(todo)">DELETE</a>
+							</div>	
+						</div>
+						<div class="span11">
+							<hr>
+						</div>
+					</ul>
+			
+	
+			
+			
+					
+			
+			<div class="form-group">
+				<textarea class="form-control" rows="3" ng-model="newTodo.task"></textarea>
+			</div>
+			
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary"> <a ng-controller="Ctrl" href=#{{url}} ng-click="addNew(newTodo)" style="color:white;">Commenter </a></button>
+			</div>
+		</div>
+		
+		</div>
+	</div>
 </div>

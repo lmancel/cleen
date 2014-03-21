@@ -71,6 +71,10 @@ cleen.config(['$routeProvider',
                 templateUrl: 'partials/faq.html',
                 controller: ''
             }).
+            when('/allclothes', {
+                templateUrl: 'partials/all.html',
+                controller: ''
+            }).
             otherwise({
                 redirectTo: '/home'
             });

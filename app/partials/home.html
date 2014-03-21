@@ -2,18 +2,16 @@
 		<h2> Accueil</h2>
 	</header>
 	
-	<div class="container" ng-controller="mainNavBar">
-		<div class="row-fluid">
-			
-			<div class="span9">
+	<div class="container" ng-controller="mainNavBar">	
+		<div class="row-fluid"  >
+			<div class="span12" >
+				<div class="span1"></div>
 					<div class="span2">
-						<img src="img/image_accueil.png" >
+						<img src="img/image_accueil.gif" style="max-width:150px;max-height:350px;">
 					</div>
-				
-					<div class="span1"></div>
-				
-					<div class="span5">
-						<br/>
+
+					<div class="span6">
+						
 						<div class="presentation">
 							<h5>Vous aimez vos vêtements et vous en prenez soin !</h5>
 							<br/>
@@ -25,11 +23,11 @@
 				
 					<div class="span1"></div>
 				
-					<div class="span3">
-						<img src="img/image_accueil3.png" >
+					<div class="span2">
+						<img src="img/image_accueil3.gif" >
 					</div>
-
-				
+			
+				</div>
 				<div class="span12"><br/>
 					<hr>
 					<br/>
@@ -52,7 +50,7 @@
 					
 					<ul class="categorie">
 						<div class="nav-header"><a href="#colors">Couleurs</a></div>
-						<li ng-repeat ="menu in colors"><a ng-href="#/color/{{menu.color}}">{{menu.color}}</a><hr></li>				
+						<li ng-repeat ="menu in colors | orderBy:'color'"><a ng-href="#/color/{{menu.color}}">{{menu.color}}</a><hr></li>				
 					</ul>
 					
 				</div>
@@ -60,19 +58,18 @@
 				<div class="span6">
 					<ul class="categorie">
 						<div class="nav-header"><a href="#brand">Marques</a></div>
-						 <li ng-repeat ="menu in brands"><a ng-href="#/brand/{{menu.brand}}">{{menu.brand}}</a><hr></li>		
+						 <li ng-repeat ="menu in brands | orderBy:'brand'""><a ng-href="#/brand/{{menu.brand}}">{{menu.brand}}</a><hr></li>		
 					</ul>
 								
 					<ul class="categorie">
 						<div class="nav-header"><a href="#materials">Matières</a></div>
-						 <li ng-repeat ="menu in materials"><a ng-href="#/materials/{{menu.material}}">{{menu.material}}</a><hr></li>
+						 <li ng-repeat ="menu in materials | orderBy:'material'""><a ng-href="#/materials/{{menu.material}}">{{menu.material}}</a><hr></li>
 					</ul>
 				</div>
 			</div>
+		</div>
 				
 			
-			
-		</div>
-	</div>
+		
 	
 	
