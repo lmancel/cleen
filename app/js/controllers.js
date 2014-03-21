@@ -167,6 +167,14 @@ cleencontroller.controller('loginController', function($scope, $http) {
                     $scope.show = false;
                 }
             });
+
+        $scope.toggle = function() {
+            console.log('Toggle fonctionne !!');
+            $http.get('/isAuthenticated')
+                .success(function(data){
+                    $scope.showOrHide = data;
+                })
+        }
     };
     $scope.isLogged();
 });
@@ -226,7 +234,6 @@ cleencontroller.controller('profileController', function($scope, $http) {
                     });
             }
         });
-
 });
 
 cleencontroller.controller('authButtonsController', function($scope, $http) {

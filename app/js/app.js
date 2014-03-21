@@ -45,7 +45,7 @@ cleen.config(['$routeProvider',
             }).
             when('/home', {
                 templateUrl: 'partials/home.html',
-                controller: ''
+                controller: 'authButtonsController'
             }).
             when('/clothes/:sex/:type/:nameid', {
                 templateUrl: 'partials/clothe.html',
