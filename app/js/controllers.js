@@ -147,10 +147,10 @@ cleencontroller.controller('authController', function($scope, $http, $location) 
     $scope.isAuthenticated = function() {
         $http.get('/isAuthenticated')
             .success(function(data){
-                if (data != 'true') {
+                if (data != true) {
                     $location.url('/login')
                 }
-            });
+            })
     };
     $scope.isAuthenticated();
 });
@@ -185,26 +185,16 @@ cleencontroller.controller('usersImgController', function($scope, $http) {
 
 cleencontroller.controller('signupController', function($scope, $http) {
     $scope.user = {};
-    $scope.selection = [];
-    $scope.toggleSelection = function toggleSelection(fruitName) {
-        var idx = $scope.selection.indexOf(fruitName);
-        if (idx > -1) {
-            $scope.selection.splice(idx, 1);
-        }
-        else {
-            $scope.selection.push(fruitName);
-            $scope.user.avatar = $scope.selection[0];
-        }
+
+    $scope.toggleSelection = function toggleSelection(iconID) {
+        $scope.selectedIcon = iconID;
+        $scope.user.avatar = $scope.selectedIcon;
     };
 
     $scope.newUser = function() {
-//        $http({
-//            method: 'POST',
-//            url : '/signup',
-//            data: $scope.user
-//        })
         $http.post('/signup', $scope.user);
     };
+
     $scope.newUser();
 });
 
@@ -225,14 +215,42 @@ cleencontroller.controller('signupAlertController', function($scope, $http) {
 });
 
 cleencontroller.controller('profileController', function($scope, $http) {
+    $http.get('/profile/1/2/3/4/5')
+        .success(function(data){
+            if (data != 'err') {
+                $scope.pseudo = data.pseudo;
+                $scope.email = data.email;
+                $http.get('/avatar/'+data.avatar+'/1/2/3/4')
+                    .success(function(avatar) {
+                        $scope.avatar = avatar[0];
+                    });
+            }
+        });
 
-        $http.get('/profile/1/2/3/4/5')
+});
+
+cleencontroller.controller('authButtonsController', function($scope, $http) {
+    $scope.isAuthenticated = function() {
+        $http.get('/isAuthenticated')
             .success(function(data){
-                console.log(data);
-                if (data != 'err') {
-                    $scope.pseudo = data.pseudo;
-                    $scope.email = data.email;
-                }
-            });
+                if (data) {
+                    $scope.coOrProfileLink = "/#/login"
+                    $scope.coOrProfile = "Connexion";
 
+                    $scope.insOrDecoLink = "/#/signup"
+                    $scope.insOrDeco = "Inscription"
+
+                }
+                else {
+                    $scope.coOrProfileLink = "/#/profile"
+                    $scope.coOrProfile = "Mon Compte";
+
+                    $scope.insOrDecoLink = "/logout"
+                    $scope.insOrDeco = "Déconnexion"
+                }
+                console.log("Links  : " + $scope.coOrProfileLink + " / " + $scope.insOrDecoLink);
+                console.log("Texts  : " + $scope.coOrProfile + " / " + $scope.insOrDeco);
+            })
+    };
+    $scope.isAuthenticated();
 });

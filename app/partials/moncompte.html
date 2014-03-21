@@ -1,5 +1,5 @@
 ﻿
-<div ng-controller="authController">
+<div ng-controller="authController" ng-cloak>
 	<header>
 		<h2>Mon compte</h2>
 	</header>
@@ -9,10 +9,10 @@
 	
 			<div class="span12">				
 				<div class ="span1">
-					<img class="img-user" src="../img/justine.png"/>
+					<img class="img-user" style="max-width: 70px; max-height: 70px" src="{{avatar.path}}"/>
 				</div>
 				
-				<div class="span1"></div>
+				<!--<div class="span1"></div>-->
 				
 				<div class="span8">
                     <a href="/logout" class="btn btn-default btn-sm">Déconnexion</a>

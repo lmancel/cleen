@@ -53,23 +53,24 @@
 
         </div>
 
-        <div class="collapse navbar-collapse">
-            <!--<form class="navbar-form navbar-right" action="#">-->
-                <!--<input type="text" class="search-query span3" placeholder="Rechercher">-->
-            <!--</form>-->
-            <ul class="nav nav-pills navbar-right">
-                <li><a href="#/login" class="btn btn-dark">Connexion</a></li>
-                <li><a href="#/signup" class="btn btn-dark"></span>Inscription</a></li>
-            </ul>
+        <div ng-controller="authButtonsController">
+            <div>
+                <ul class="nav nav-pills navbar-right">
+                    <li><a href="{{coOrProfileLink}}" class="btn btn-dark"><span ng-bind="coOrProfile"></span></a></li>
+                    <li><a href="{{insOrDecoLink}}" class="btn btn-dark"></span><span ng-bind="insOrDeco"></span></a></li>
+                </ul>
+            </div>
+            <!--<div>-->
+            <!--<ul class="nav nav-pills navbar-right">-->
+            <!--<li><a href="#/profile" class="btn btn-dark"><span ng-bind="coOrProfile"></span></a></li>-->
+            <!--<li><a href="/logout" class="btn btn-dark"></span><span ng-bind="insOrDeco"></span></a></li>-->
+            <!--</ul>-->
+            <!--</div>-->
         </div>
     </div>
 </div>
 <hr>
-<!--<div class="container">-->
-    <!--<div class="row">-->
-        <!--<div class="span4"><img class="center-block" src="img /main.png" /></div>-->
-    <!--</div>-->
-<!--</div>-->
+
 <hr>
 
 <div class="navbar " role="navigation">
@@ -125,8 +126,6 @@
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#/allclothes">Tous les vêtements</a></li>
-            <li><a href="#/profile">Mon compte </a></li>
             <li><a href="#/faq">FAQ</a></li>
         </ul>
     </div>

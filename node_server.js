@@ -124,8 +124,14 @@ db.once('open', function callback () {
 
 
     // PROFILE SECTION =====================
-    app.get('/isAuthenticated', isLoggedIn, function(req, res) {
-        res.send(true);
+    app.get('/isAuthenticated', function(req, res, next) {
+        if (req.user) {
+            res.send(true);
+            return next();
+        }
+        else {
+            res.send(false);
+        }
     });
 
     var clothesSchema = mongoose.Schema({
@@ -235,16 +241,29 @@ db.once('open', function callback () {
             })
     });
 
+    app.get('/avatar/:avatarID/1/2/3/4', function(req, res) {
+        Icons.find(null)
+            .where('_id').equals(req.params.avatarID)
+            .exec(function(err, icon) {
+                if (err==true) {
+                    res.send('err');
+                }
+                else {
+                    res.send(icon);
+                }
+            })
+    });
+
 });
 // route middleware to make sure a user is logged in
-function isLoggedIn(req, res, next) {
-    // if user is authenticated in the session, carry on
-    if (req.isAuthenticated())
-        return next();
-
-    // if they aren't redirect them to the login page
-    res.redirect('/login');
-}
+//function isLoggedIn(req, res, next) {
+//    // if user is authenticated in the session, carry on
+//    if (req.isAuthenticated())
+//        return next();
+//
+//    // if they aren't redirect them to the login page
+//    res.redirect('/login');
+//}
 
 // routes =================================
 require('./app/routes.js')(app, passport);
