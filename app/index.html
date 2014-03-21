@@ -53,19 +53,32 @@
 
         </div>
 
-        <div ng-controller="authButtonsController">
-            <div>
-                <ul class="nav nav-pills navbar-right">
-                    <li><a href="{{coOrProfileLink}}" class="btn btn-dark"><span ng-bind="coOrProfile"></span></a></li>
-                    <li><a href="{{insOrDecoLink}}" class="btn btn-dark"></span><span ng-bind="insOrDeco"></span></a></li>
-                </ul>
-            </div>
+        <div ng-controller="authButtonsController" ng-model="showOrHide">
+            <!--<div>-->
+                <!--<ul class="nav nav-pills navbar-right">-->
+                    <!--<li><a href="{{coOrProfileLink}}" class="btn btn-dark"><span ng-bind="coOrProfile"></span></a></li>-->
+                    <!--<li><a href="{{insOrDecoLink}}" class="btn btn-dark"></span><span ng-bind="insOrDeco"></span></a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
             <!--<div>-->
             <!--<ul class="nav nav-pills navbar-right">-->
             <!--<li><a href="#/profile" class="btn btn-dark"><span ng-bind="coOrProfile"></span></a></li>-->
             <!--<li><a href="/logout" class="btn btn-dark"></span><span ng-bind="insOrDeco"></span></a></li>-->
             <!--</ul>-->
             <!--</div>-->
+            <div>
+                <ul class="nav nav-pills navbar-right" ng-hide="showOrHide">
+                    <li><a href="#/login" class="btn btn-dark"><span ng-bind="Connexion"></span></a></li>
+                    <li><a href="#/signup" class="btn btn-dark"></span><span ng-bind="Inscription"></span></a></li>
+                </ul>
+            </div>
+            <div>
+                <ul class="nav nav-pills navbar-right" ng-show=showOrHide>
+                    <li><a href="#/profile" class="btn btn-dark"><span ng-bind="Mon Compte"></span></a></li>
+                    <li><a href="/logout" class="btn btn-dark"></span><span ng-bind="Déconnexion"></span></a></li>
+                </ul>
+            </div>
+
         </div>
     </div>
 </div>

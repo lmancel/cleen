@@ -233,23 +233,24 @@ cleencontroller.controller('authButtonsController', function($scope, $http) {
     $scope.isAuthenticated = function() {
         $http.get('/isAuthenticated')
             .success(function(data){
-                if (data) {
-                    $scope.coOrProfileLink = "/#/login"
-                    $scope.coOrProfile = "Connexion";
-
-                    $scope.insOrDecoLink = "/#/signup"
-                    $scope.insOrDeco = "Inscription"
-
-                }
-                else {
-                    $scope.coOrProfileLink = "/#/profile"
-                    $scope.coOrProfile = "Mon Compte";
-
-                    $scope.insOrDecoLink = "/logout"
-                    $scope.insOrDeco = "Déconnexion"
-                }
-                console.log("Links  : " + $scope.coOrProfileLink + " / " + $scope.insOrDecoLink);
-                console.log("Texts  : " + $scope.coOrProfile + " / " + $scope.insOrDeco);
+//                if (data) {
+//                    $scope.coOrProfileLink = "/#/login"
+//                    $scope.coOrProfile = "Connexion";
+//
+//                    $scope.insOrDecoLink = "/#/signup"
+//                    $scope.insOrDeco = "Inscription"
+//
+//                }
+//                else {
+//                    $scope.coOrProfileLink = "/#/profile"
+//                    $scope.coOrProfile = "Mon Compte";
+//
+//                    $scope.insOrDecoLink = "/logout"
+//                    $scope.insOrDeco = "Déconnexion"
+//                }
+//                console.log("Links  : " + $scope.coOrProfileLink + " / " + $scope.insOrDecoLink);
+//                console.log("Texts  : " + $scope.coOrProfile + " / " + $scope.insOrDeco);
+                $scope.showOrHide = data;
             })
     };
     $scope.isAuthenticated();
