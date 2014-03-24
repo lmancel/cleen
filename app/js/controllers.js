@@ -265,4 +265,60 @@ cleencontroller.controller('authButtonsController', function($scope, $http) {
 
 cleencontroller.controller('newClothesController', function($scope, $http) {
     $scope.new = {};
+
+    $scope.toggleSelectionClean = function toggleSelectionClean(iconID) {
+        $scope.selectedCleaning = iconID;
+        $scope.new.lavage = $scope.selectedCleaning;
+    };
+    $scope.toggleSelectionWhite = function toggleSelectionWhite(iconID) {
+        $scope.selectedWhitening = iconID;
+        $scope.new.blanchiment = $scope.selectedWhitening;
+    };
+    $scope.toggleSelectionIron = function toggleSelectionIron(iconID) {
+        $scope.selectedIroning = iconID;
+        $scope.new.repassage = $scope.selectedIroning;
+    };
+    $scope.toggleSelectionDry = function toggleSelectionDry(iconID) {
+        $scope.selectedDrying = iconID;
+        $scope.new.sechage = $scope.selectedDrying;
+    };
+    $scope.toggleSelectionProf = function toggleSelectionProf(iconID) {
+        $scope.selectedProfCleaning = iconID;
+        $scope.new.nettPro = $scope.selectedProfCleaning;
+    };
+
+    $scope.getCleaning = function() {
+        $http.get('/new/clothe/lavage/1/2/3/4/5/6')
+            .success(function(cleaning){
+                if (cleaning != 'err'){
+                    $scope.lavage = cleaning;
+                }
+            });
+        $http.get('/new/clothe/blanchiment/1/2/3/4/5/6')
+            .success(function(cleaning){
+                if (cleaning != 'err'){
+                    $scope.blanchiment = cleaning;
+                }
+            });
+        $http.get('/new/clothe/sechage/1/2/3/4/5/6')
+            .success(function(cleaning){
+                if (cleaning != 'err'){
+                    $scope.sechage = cleaning;
+                }
+            });
+        $http.get('/new/clothe/repassage/1/2/3/4/5/6')
+            .success(function(cleaning){
+                if (cleaning != 'err'){
+                    $scope.repassage= cleaning;
+                }
+            });
+        $http.get('/new/clothe/nettPro/1/2/3/4/5/6')
+            .success(function(cleaning){
+                if (cleaning != 'err'){
+                    $scope.nettPro= cleaning;
+                }
+            });
+    };
+
+    $scope.getCleaning();
 });

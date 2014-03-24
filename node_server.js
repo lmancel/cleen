@@ -254,16 +254,20 @@ db.once('open', function callback () {
             })
     });
 
+    app.get('/new/clothe/:cleaning/1/2/3/4/5/6', function(req, res) {
+        Clean.find(null)
+            .where('forwhat').equals(req.params.cleaning)
+            .exec(function(err, cleaning) {
+            if (err==true) {
+                res.send('err');
+            }
+            else {
+                res.send(cleaning);
+            }
+        })
+    });
 });
-// route middleware to make sure a user is logged in
-//function isLoggedIn(req, res, next) {
-//    // if user is authenticated in the session, carry on
-//    if (req.isAuthenticated())
-//        return next();
-//
-//    // if they aren't redirect them to the login page
-//    res.redirect('/login');
-//}
+
 
 // routes =================================
 require('./app/routes.js')(app, passport);

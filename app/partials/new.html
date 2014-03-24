@@ -1463,10 +1463,10 @@
 			<div class="form-group">
 				<label class="col-sm-1 control-label">Genre</label>
 					<div class="col-sm-2"  ng-hide="new.sexM">
-						<input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="new.sexW" ng-true-value="women" ng-false-value="no"> Femme
+						<input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="new.sexW" ng-true-value="women" ng-false-value=""> Femme
 					</div>
 					<div class="col-sm-2" ng-hide="new.sexW">
-						<input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="new.sexM" ng-true-value="men" ng-false-value="no"> Homme
+						<input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="new.sexM" ng-true-value="men" ng-false-value=""> Homme
 						
 					</div>
 				</div>
@@ -1494,115 +1494,62 @@
 			</div>
 		</div>
 	
-		<div class ="row" ng-controller="clothesPage">
-			<div class="form-group">
-				<label class="col-sm-1 control-label">Blanchiment</label>
-					<div class="col-sm-1" >
-						<input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="new.blanchiment">
-						<img src="img/ico/Blanchiment_autorise.png" alt='lavage' title="Blanchiment autorisé">
-					</div>
-					<div class="col-sm-1">
-						<input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="new.blanchiment">
-						<img src="img/ico/Blanchiment_interdit.png" alt='lavage' title="Blanchiment interdit">
-					</div>
-					<div class="col-sm-1">
-						<input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="new.blanchiment">
-						<img src="img/ico/Blanchiment_oxygene.png" alt='lavage' title="Blanchiment oxygéné">
-					</div>
-				</div>
-		</div>
+
 		<div class ="row">
 			<div class="form-group">
 				<label class="col-sm-1 control-label">Lavage</label>
-					
-					<div class="col-sm-1">
-						<input type="checkbox" id="inlineCheckbox2" value="option2" " > 
-						<img src="img/ico/Lavage_30_normal.png" alt='lavage' title="Lavage à 30°C ">
-					</div>
-					
-					<div class="col-sm-1">
-						<input type="checkbox" id="inlineCheckbox2" value="option2" " > 
-						<img src="img/ico/Lavage_40_normal.png" alt='lavage' title="Lavage à 40°C ">
-					</div>
-					
-					<div class="col-sm-1">
-						<input type="checkbox" id="inlineCheckbox2" value="option2" " > 
-						<img src="img/ico/Lavage_main.png" alt='lavage' title="Lavage à la main">
-					</div>
-					<div class="col-sm-1">
-						<input type="checkbox" id="inlineCheckbox2" value="option2" " > 
-						<img src="img/ico/nepaslaver.png" alt='lavage' title="Ne pas laver !">
-					</div>
+                <div class="col-sm-1" ng-repeat="clean in lavage">
+                    <input type="checkbox" id="inlineCheckbox2" ng-model="selectedCleaning" ng-true-value="{{clean.key}}" ng-false-value="" ng-click="toggleSelectionClean(clean.key)">
+                    <img src="{{clean.pic}}" alt='lavage' title="{{clean.fullName}}">
+                </div>
+                <input type="text" class="form-control" name="lavage" ng-model="new.lavage" ng-show="no">
 			</div>
 		</div>
-		
+
+        <div class ="row" ng-controller="clothesPage">
+            <div class="form-group">
+                <label class="col-sm-1 control-label">Blanchiment</label>
+                <div class="col-sm-1" ng-repeat="white in blanchiment">
+                    <input type="checkbox" id="inlineCheckbox1" ng-model="selectedWhitening" ng-true-value="{{white.key}}" ng-false-value="" ng-click="toggleSelectionWhite(white.key)">
+                    <img src="{{white.pic}}" alt='lavage' title="{{white.fullName}}">
+                </div>
+                <input type="text" class="form-control" name="lavage" ng-model="new.blanchiment" ng-show="no">
+            </div>
+        </div>
+
 		<div class ="row">
 			<div class="form-group">
 				<label class="col-sm-1 control-label">Repassage</label>
-					
-					<div class="col-sm-1">
-						<input type="checkbox" id="inlineCheckbox2" value="option2" " > 
-						<img src="img/ico/Repassage_interdit.png" alt='lavage' title="Repassage interdit ">
-					</div>
-					
-					<div class="col-sm-1">
-						<input type="checkbox" id="inlineCheckbox2" value="option2" " > 
-						<img src="img/ico/Repassage_max_110.png" alt='lavage' title="Repassage max 110°C ">
-					</div>
-					
-					<div class="col-sm-1">
-						<input type="checkbox" id="inlineCheckbox2" value="option2" " > 
-						<img src="img/ico/Repassage_max_150.png" alt='lavage' title="Repassage max 150°C">
-					</div>
-					<div class="col-sm-1">
-						<input type="checkbox" id="inlineCheckbox2" value="option2" " > 
-						<img src="img/ico/Repassage_max_200.png" alt='lavage' title="Repassage max 200°C">
-					</div>
+                <div class="col-sm-1" ng-repeat="iron in repassage">
+                    <input type="checkbox" id="inlineCheckbox2" ng-model="selectedIroning" ng-true-value="{{iron.key}}" ng-false-value="" ng-click="toggleSelectionIron(iron.key)">
+                    <img src="{{iron.pic}}" alt='lavage' title="{{iron.fullName}}">
+                </div>
+                <input type="text" class="form-control" name="lavage" ng-model="new.repassage" ng-show="no">
 			</div>
 		</div>
+
 		<div class ="row">
 			<div class="form-group">
 				<label class="col-sm-1 control-label">Séchage</label>
-					
-					<div class="col-sm-1">
-						<input type="checkbox" id="inlineCheckbox2" value="option2" > 
-						<img src="img/ico/Sechage_tambour_interdit.png" alt='lavage' title="Séchage tambour interdit ">
-					</div>
-					
-					<div class="col-sm-1">
-						<input type="checkbox" id="inlineCheckbox2" value="option2" > 
-						<img src="img/ico/Sechage_tambour_modere.png" alt='lavage' title="Séchage tambour modéré ">
-					</div>
-					
-					<div class="col-sm-1">
-						<input type="checkbox" id="inlineCheckbox2" value="option2"> 
-						<img src="img/ico/Sechage_tambour_normal.png" alt='lavage' title="Sechage tambour normal">
-					</div>
-					
+                <div class="col-sm-1" ng-repeat="dry in sechage">
+                    <input type="checkbox" id="inlineCheckbox2" ng-model="selectedDrying" ng-true-value="{{dry.key}}" ng-false-value="" ng-click="toggleSelectionDry(dry.key)">
+                    <img src="{{dry.pic}}" alt='lavage' title="{{dry.fullName}}">
+                </div>
+                <input type="text" class="form-control" name="lavage" ng-model="new.sechage" ng-show="no">
 			</div>
 		</div>
 		
 		<div class ="row">
 			<div class="form-group">
 				<label class="col-sm-1 control-label">Nettoyage professionnel</label>
-					
-					<div class="col-sm-1">
-						<input type="checkbox" id="inlineCheckbox2" value="option2" > 
-						<img src="img/ico/Nettoyage_prof_eau_normal.png" alt='lavage' title="Nettoyage professionel eau normal ">
-					</div>
-					
-					<div class="col-sm-1">
-						<input type="checkbox" id="inlineCheckbox2" value="option2"> 
-						<img src="img/ico/Nettoyage_prof_sec_interdit.png" alt='lavage' title="Nettoyage professionel sec interdit">
-					</div>
-					
-					<div class="col-sm-1">
-						<input type="checkbox" id="inlineCheckbox2" value="option2" > 
-						<img src="img/ico/symbole-nettoyage-pro.png" alt='lavage' title="Nettoyage professionel">
-					</div>
-					
+                <div class="col-sm-1" ng-repeat="prof in nettPro">
+                    <input type="checkbox" id="inlineCheckbox2" ng-model="selectedProfCleaning" ng-true-value="{{prof.key}}" ng-false-value="" ng-click="toggleSelectionProf(prof.key)">
+                    <img src="{{prof.pic}}" alt='lavage' title="{{prof.fullName}}">
+                </div>
+                <input type="text" class="form-control" name="lavage" ng-model="new.nettPro" ng-show="no">
 			</div>
 		</div>
+
 		<div class="row">
 			<div class="form-group">
 					<label class="col-sm-1 control-label">Image </label>
