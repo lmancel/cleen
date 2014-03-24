@@ -262,3 +262,7 @@ cleencontroller.controller('authButtonsController', function($scope, $http) {
     };
     $scope.isAuthenticated();
 });
+
+cleencontroller.controller('newClothesController', function($scope, $http) {
+    $scope.new = {};
+});
