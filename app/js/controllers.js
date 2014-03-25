@@ -318,7 +318,11 @@ cleencontroller.controller('newClothesController', function($scope, $http) {
                     $scope.nettPro= cleaning;
                 }
             });
-    };
 
+        $http.post('/new', $scope.new)
+            .success(function(added) {
+                console.log('clothe added successfully');
+            });
+    };
     $scope.getCleaning();
 });

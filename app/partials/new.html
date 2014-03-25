@@ -5,13 +5,13 @@
 
 	<div class="container" ng-controller="newClothesController">
 	
-	<form class="form-horizontal" role="form" ng-submit="submit()" >
+	<form class="form-horizontal" action="/new" method="post" role="form" ng-submit="submit()" >
 		<div class="row">
 			<div class="form-group">	
 				<div ng-controller="mainNavBar">
 					<label class="col-sm-1 control-label">Marque</label>
 					 <div class="col-sm-2">
-						<select id="simple" class="form-control" ng-model="new.brand">
+						<select id="simple" name="brand" class="form-control" ng-model="new.brand">
 								<option>&nbsp;</option>
 								<option ng-repeat ="menu in brands | orderBy:'brand'">{{menu.brand}}</option>
 						</select>
@@ -19,19 +19,19 @@
 				</div>
 			</div>	
 		</div>
-	<div class="row" >
+	    <div class="row" >
 			<div class="form-group">
 				<div ng-controller="mainNavBar">
 					<label class="col-sm-1 control-label">Matière %</label>
 					 <div class="col-sm-2">
-						<select id="simple" class="form-control" ng-model="new.materials1.name">
+						<select id="simple" name="materials_type" class="form-control" ng-model="new.materials1.name">
 								<option>&nbsp;</option>
 								<option ng-repeat ="menu in materials | orderBy:'material'">{{menu.material}}</option>
 						</select>
 					</div>
 				</div>
 
-				<div >
+				<div>
 					<div class="col-sm-2">
 						<select id="simple" class="form-control" ng-model="new.materials1.perc">
 								<option>&nbsp;</option>
@@ -153,7 +153,7 @@
 				<div ng-controller="mainNavBar">
 					<label class="col-sm-1 control-label">Matière %</label>
 					 <div class="col-sm-2">
-						<select id="simple" class="form-control" ng-model="new.material2.name">
+						<select id="simple" name="materials_type" class="form-control" ng-model="new.material2.name">
 								<option>&nbsp;</option>
 								<option ng-repeat ="menu in materials | orderBy:'material'">{{menu.material}}</option>
 						</select>
@@ -281,7 +281,7 @@
 				<div ng-controller="mainNavBar">
 					<label class="col-sm-1 control-label">Matière %</label>
 					 <div class="col-sm-2">
-						<select id="simple" class="form-control" ng-model="new.material3.name">
+						<select id="simple" name="materials_type" class="form-control" ng-model="new.material3.name">
 								<option>&nbsp;</option>
 								<option ng-repeat ="menu in materials | orderBy:'material'">{{menu.material}}</option>
 						</select>
@@ -1425,31 +1425,31 @@
 			<div class="form-group">
 				<div ng-controller="mainNavBar">
 					<label class="col-sm-1 control-label" for="simple"> Couleurs</label>
-						<div class="col-sm-2">
-							<select id="simple" class="form-control" ng-model="new.color1">
-								<option>&nbsp;</option>
-								<option ng-repeat ="menu in colors| orderBy:'color'">{{menu.color}}</option>
-								
-							</select>
-						</div>
+				    <div class="col-sm-2">
+                        <select id="simple" name="color" class="form-control" ng-model="new.color1">
+                            <option>&nbsp;</option>
+                            <option ng-repeat ="menu in colors| orderBy:'color'">{{menu.color}}</option>
+
+                        </select>
 					</div>
-			
-			
-			
-			<div ng-controller="mainNavBar">
-				<div class="col-sm-2">
-					<select class="form-control" ng-model="new.color2">
-						<option>&nbsp;</option>
-						<option ng-repeat ="menu in colors | orderBy:'color'">{{menu.color}}</option>
-						
-					</select>
 				</div>
-			</div>
+			
+			
+			
+			    <div ng-controller="mainNavBar">
+                    <div class="col-sm-2">
+                        <select name="color" class="form-control" ng-model="new.color2">
+                            <option>&nbsp;</option>
+                            <option ng-repeat ="menu in colors | orderBy:'color'">{{menu.color}}</option>
+
+                        </select>
+                    </div>
+			    </div>
 			
 			
 				<div ng-controller="mainNavBar">
 					<div class="col-sm-2">
-						<select class="form-control" ng-model="new.color3">
+						<select name="color" class="form-control" ng-model="new.color3">
 							<option>&nbsp;</option>
 							<option ng-repeat ="menu in colors | orderBy:'color'">{{menu.color}}</option>
 							
@@ -1463,11 +1463,10 @@
 			<div class="form-group">
 				<label class="col-sm-1 control-label">Genre</label>
 					<div class="col-sm-2"  ng-hide="new.sexM">
-						<input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="new.sexW" ng-true-value="women" ng-false-value=""> Femme
+						<input type="checkbox" id="inlineCheckbox1" name="sex" ng-model="new.sexW" ng-true-value="women" ng-false-value=""> Femme
 					</div>
 					<div class="col-sm-2" ng-hide="new.sexW">
-						<input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="new.sexM" ng-true-value="men" ng-false-value=""> Homme
-						
+						<input type="checkbox" id="inlineCheckbox2" name="sex" ng-model="new.sexM" ng-true-value="men" ng-false-value=""> Homme
 					</div>
 				</div>
 		</div>
@@ -1476,7 +1475,7 @@
 				<div ng-controller="mainNavBar" class="check-element animate-show" ng-show="new.sexW">
 					<label class="col-sm-1 control-label">Vêtement</label>
 					 <div class="col-sm-2">
-						<select id="simple" class="form-control" ng-model="new.type">
+						<select id="simple" class="form-control" name="type" ng-model="new.type">
 								<option>&nbsp;</option>
 								<option ng-repeat ="menu in typesW">{{menu.type}}</option>
 						</select>
@@ -1485,7 +1484,7 @@
 				<div ng-controller="mainNavBar" class="check-element animate-show" ng-show="new.sexM">
 					<label class="col-sm-1 control-label">Vêtement</label>
 					 <div class="col-sm-2">
-						<select id="simple" class="form-control" ng-model="new.type">
+						<select id="simple" class="form-control" name="type" ng-model="new.type">
 								<option>&nbsp;</option>
 								<option ng-repeat ="menu in typesM">{{menu.type}}</option>
 						</select>
@@ -1513,7 +1512,7 @@
                     <input type="checkbox" id="inlineCheckbox1" ng-model="selectedWhitening" ng-true-value="{{white.key}}" ng-false-value="" ng-click="toggleSelectionWhite(white.key)">
                     <img src="{{white.pic}}" alt='lavage' title="{{white.fullName}}">
                 </div>
-                <input type="text" class="form-control" name="lavage" ng-model="new.blanchiment" ng-show="no">
+                <input type="text" class="form-control" name="blanchiment" ng-model="new.blanchiment" ng-show="no">
             </div>
         </div>
 
@@ -1524,7 +1523,7 @@
                     <input type="checkbox" id="inlineCheckbox2" ng-model="selectedIroning" ng-true-value="{{iron.key}}" ng-false-value="" ng-click="toggleSelectionIron(iron.key)">
                     <img src="{{iron.pic}}" alt='lavage' title="{{iron.fullName}}">
                 </div>
-                <input type="text" class="form-control" name="lavage" ng-model="new.repassage" ng-show="no">
+                <input type="text" class="form-control" name="repassage" ng-model="new.repassage" ng-show="no">
 			</div>
 		</div>
 
@@ -1535,7 +1534,7 @@
                     <input type="checkbox" id="inlineCheckbox2" ng-model="selectedDrying" ng-true-value="{{dry.key}}" ng-false-value="" ng-click="toggleSelectionDry(dry.key)">
                     <img src="{{dry.pic}}" alt='lavage' title="{{dry.fullName}}">
                 </div>
-                <input type="text" class="form-control" name="lavage" ng-model="new.sechage" ng-show="no">
+                <input type="text" class="form-control" name="sechage" ng-model="new.sechage" ng-show="no">
 			</div>
 		</div>
 		
@@ -1546,34 +1545,34 @@
                     <input type="checkbox" id="inlineCheckbox2" ng-model="selectedProfCleaning" ng-true-value="{{prof.key}}" ng-false-value="" ng-click="toggleSelectionProf(prof.key)">
                     <img src="{{prof.pic}}" alt='lavage' title="{{prof.fullName}}">
                 </div>
-                <input type="text" class="form-control" name="lavage" ng-model="new.nettPro" ng-show="no">
+                <input type="text" class="form-control" name="nettPro" ng-model="new.nettPro" ng-show="no">
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="form-group">
-					<label class="col-sm-1 control-label">Image </label>
-					<input id="lefile" type="file" style="display:none">
-					<div  class="col-sm-2">
-						<input id="photoCover" class="form-control" type="text">
-						
-					</div>
-					<div  class="col-sm-">
-						
-						<button type="submit" class="btn btn-primary"><a class="btn" style="color:white;" onclick="$('input[id=lefile]').click();">Choisir l'image</a></button>
-					</div>
-				</div>
+                <label class="col-sm-1 control-label">Image </label>
+                <input id="lefile" type="file" style="display:none">
+                <div  class="col-sm-2">
+                    <input id="photoCover" class="btn btn-primary" type="file" name="file">
+
+                </div>
+                <!--<div  class="col-sm-">-->
+                    <!---->
+                    <!--<button type="submit" class="btn btn-primary"><a class="btn" style="color:white;" onclick="$('input[id=lefile]').click();">Choisir l'image</a></button>-->
+                <!--</div>-->
+            </div>
 		</div>
-		<div class="row">
-			<div class="form-group">
-				<label class="col-sm-1 control-label">Commentaire</label>
-				<textarea class="form-control" rows="3"></textarea>
-			</div>
-		</div>
-		<div class="form-group">
-			
-			<button type="submit" class="btn btn-primary">Laver !</button>
-		</div>
+		<!--<div class="row">-->
+			<!--<div class="form-group">-->
+				<!--<label class="col-sm-1 control-label">Commentaire</label>-->
+				<!--<textarea class="form-control" rows="3"></textarea>-->
+			<!--</div>-->
+		<!--</div>-->
+		<!--<div class="form-group">-->
+
+            <button type="submit" class="btn btn-primary btn-lg"> Laver !</button>
+		<!--</div>-->
 	<form>
         {{new}}
 	

@@ -3,6 +3,7 @@ var app = express();
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash = require('connect-flash');
+var fs = require('fs');
 
 
 app.use('/js', express.static(__dirname + '/app/js'));
@@ -265,6 +266,43 @@ db.once('open', function callback () {
                 res.send(cleaning);
             }
         })
+    });
+
+    app.post('/new', function(req, res) {
+        console.log('brand  :  ' + req.body.brand);
+        console.log('materials  :  ' + req.body.materials_type);
+        console.log('color  :  ' + req.body.color);
+        console.log('type  :  ' + req.body.type);
+        var newClothe = new Clothes;
+//        newClothe.sex = req.body.sex;
+    });
+
+    app.post('/upload/:id', function(req, res) {
+        var filename=req.files.file.name;
+
+        var i = filename.lastIndexOf('.');
+
+        var tmp_path = req.files.file.path;
+
+        var file_extension= (i < 0) ? '' : filename.substr(i);
+
+        var target_path = __dirname + '/app/img/' + req.params.id + file_extension;
+
+        console.log('extention : ' + file_extension);
+        console.log('path : ' + target_path);
+
+//        fs.rename(tmp_path, target_path, function(err) {
+//            if (err) throw err;
+//            fs.unlink(tmp_path, function() {
+//                if (err) throw err;
+//            });
+//        });
+
+        console.log("File uploaded successfully");
+//
+//        fs.unlink(tmp_path, function(err) {
+//            if (err) throw err;
+//        });
     });
 });
 
