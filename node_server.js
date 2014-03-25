@@ -89,7 +89,6 @@ db.once('open', function callback () {
     });
     app.get('/materials', function (req, res) {
         Materials.find(null)
-            .limit(7)
             .exec(function(err,materials){
                 if (err==true){
                     res.send('err');
@@ -112,7 +111,6 @@ db.once('open', function callback () {
     });
     app.get('/colors', function (req, res) {
         Colors.find(null)
-            .limit(7)
             .exec(function(err,colors){
                 if (err==true){
                     res.send('err');
@@ -269,10 +267,7 @@ db.once('open', function callback () {
     });
 
     app.post('/new', function(req, res) {
-        console.log('brand  :  ' + req.body.brand);
-        console.log('materials  :  ' + req.body.materials_type);
-        console.log('color  :  ' + req.body.color);
-        console.log('type  :  ' + req.body.type);
+        console.log('sex  :  ' + req.body.sex);
         var newClothe = new Clothes;
 //        newClothe.sex = req.body.sex;
     });

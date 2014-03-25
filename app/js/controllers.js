@@ -168,13 +168,13 @@ cleencontroller.controller('loginController', function($scope, $http) {
                 }
             });
 
-        $scope.toggle = function() {
-            console.log('Toggle fonctionne !!');
-            $http.get('/isAuthenticated')
-                .success(function(data){
-                    $scope.showOrHide = data;
-                })
-        }
+//        $scope.toggle = function() {
+//            console.log('Toggle fonctionne !!');
+//            $http.get('/isAuthenticated')
+//                .success(function(data){
+//                    $scope.showOrHide = data;
+//                })
+//        }
     };
     $scope.isLogged();
 });
@@ -285,6 +285,34 @@ cleencontroller.controller('newClothesController', function($scope, $http) {
     $scope.toggleSelectionProf = function toggleSelectionProf(iconID) {
         $scope.selectedProfCleaning = iconID;
         $scope.new.nettPro = $scope.selectedProfCleaning;
+    };
+    $scope.toggleSexW = function toggleSexW(iconID) {
+        if (iconID == undefined) {
+            $scope.new.sexW = "women";
+            $scope.new.selectedSex = $scope.new.sexW;
+        }
+        else {
+            if (iconID == "women") {
+                $scope.new.selectedSex = "";
+            }
+            if (iconID == "") {
+                $scope.new.selectedSex = "women";
+            }
+        }
+    };
+    $scope.toggleSexM = function toggleSexM(iconID) {
+        if (iconID == undefined) {
+            $scope.new.sexM = "men";
+            $scope.new.selectedSex = $scope.new.sexM;
+        }
+        else {
+            if (iconID == "men") {
+                $scope.new.selectedSex = "";
+            }
+            if (iconID == "") {
+                $scope.new.selectedSex = "men";
+            }
+        }
     };
 
     $scope.getCleaning = function() {

@@ -1,7 +1,8 @@
-﻿<div class="container" ng-controller="authController">
+﻿
 	<header>
 		<h2>Nouveau vêtement</h2>
 	</header>
+    <div class="container" ng-controller="authController">
 
 	<div class="container" ng-controller="newClothesController">
 	
@@ -407,7 +408,7 @@
 				<div ng-controller="mainNavBar">
 					<label class="col-sm-1 control-label">Matière %</label>
 					 <div class="col-sm-2">
-						<select id="simple" class="form-control" ng-model="new.material4.name">
+						<select id="simple" name="materials_type" class="form-control" ng-model="new.material4.name">
 								<option>&nbsp;</option>
 								<option ng-repeat ="menu in materials | orderBy:'material'">{{menu.material}}</option>
 						</select>
@@ -535,7 +536,7 @@
 				<div ng-controller="mainNavBar">
 					<label class="col-sm-1 control-label">Matière %</label>
 					 <div class="col-sm-2">
-						<select id="simple" class="form-control" ng-model="new.material5.name">
+						<select id="simple" name="materials_type" class="form-control" ng-model="new.material5.name">
 								<option>&nbsp;</option>
 								<option ng-repeat ="menu in materials | orderBy:'material'">{{menu.material}}</option>
 						</select>
@@ -663,7 +664,7 @@
 				<div ng-controller="mainNavBar">
 					<label class="col-sm-1 control-label">Matière %</label>
 					 <div class="col-sm-2">
-						<select id="simple" class="form-control" ng-model="new.material6.name">
+						<select id="simple" name="materials_type" class="form-control" ng-model="new.material6.name">
 								<option>&nbsp;</option>
 								<option ng-repeat ="menu in materials | orderBy:'material'">{{menu.material}}</option>
 						</select>
@@ -791,7 +792,7 @@
 				<div ng-controller="mainNavBar">
 					<label class="col-sm-1 control-label">Matière %</label>
 					 <div class="col-sm-2">
-						<select id="simple" class="form-control" ng-model="new.material7.name">
+						<select id="simple" name="materials_type" class="form-control" ng-model="new.material7.name">
 								<option>&nbsp;</option>
 								<option ng-repeat ="menu in materials | orderBy:'material'">{{menu.material}}</option>
 						</select>
@@ -919,7 +920,7 @@
 				<div ng-controller="mainNavBar">
 					<label class="col-sm-1 control-label">Matière %</label>
 					 <div class="col-sm-2">
-						<select id="simple" class="form-control" ng-model="new.material8.name">
+						<select id="simple" name="materials_type" class="form-control" ng-model="new.material8.name">
 								<option>&nbsp;</option>
 								<option ng-repeat ="menu in materials | orderBy:'material'">{{menu.material}}</option>
 						</select>
@@ -1046,7 +1047,7 @@
 				<div ng-controller="mainNavBar">
 					<label class="col-sm-1 control-label">Matière %</label>
 					 <div class="col-sm-2">
-						<select id="simple" class="form-control" ng-model="new.material9">
+						<select id="simple" name="materials_type" class="form-control" ng-model="new.material9">
 								<option>&nbsp;</option>
 								<option ng-repeat ="menu in materials | orderBy:'material'">{{menu.material}}</option>
 						</select>
@@ -1173,7 +1174,7 @@
 				<div ng-controller="mainNavBar">
 					<label class="col-sm-1 control-label">Matière %</label>
 					 <div class="col-sm-2">
-						<select id="simple" class="form-control" ng-model="new.material10.name">
+						<select id="simple" name="materials_type" class="form-control" ng-model="new.material10.name">
 								<option>&nbsp;</option>
 								<option ng-repeat ="menu in materials | orderBy:'material'">{{menu.material}}</option>
 						</select>
@@ -1301,7 +1302,7 @@
 				<div ng-controller="mainNavBar">
 					<label class="col-sm-1 control-label">Matière %</label>
 					 <div class="col-sm-2">
-						<select id="simple" class="form-control" ng-model="new.material11.name">
+						<select id="simple" name="materials_type" class="form-control" ng-model="new.material11.name">
 								<option>&nbsp;</option>
 								<option ng-repeat ="menu in materials| orderBy:'material'">{{menu.material}}</option>
 						</select>
@@ -1419,7 +1420,6 @@
 				</div>
 			</div>
 		</div>
-		{{new.materials}}
 		<div class="row">
 		
 			<div class="form-group">
@@ -1463,11 +1463,12 @@
 			<div class="form-group">
 				<label class="col-sm-1 control-label">Genre</label>
 					<div class="col-sm-2"  ng-hide="new.sexM">
-						<input type="checkbox" id="inlineCheckbox1" name="sex" ng-model="new.sexW" ng-true-value="women" ng-false-value=""> Femme
+						<input type="checkbox" id="inlineCheckbox1" ng-model="new.sexW" ng-true-value="women" ng-false-value="" ng-click="toggleSexW(new.sexW)"> Femme
 					</div>
 					<div class="col-sm-2" ng-hide="new.sexW">
-						<input type="checkbox" id="inlineCheckbox2" name="sex" ng-model="new.sexM" ng-true-value="men" ng-false-value=""> Homme
+						<input type="checkbox" id="inlineCheckbox2" ng-model="new.sexM" ng-true-value="men" ng-false-value="" ng-click="toggleSexM(new.sexM)"> Homme
 					</div>
+                    <input type="text" class="form-control" name="sex" ng-model="new.selectedSex" ng-show="no">
 				</div>
 		</div>
 		<div class ="row">
@@ -1573,9 +1574,8 @@
 
             <button type="submit" class="btn btn-primary btn-lg"> Laver !</button>
 		<!--</div>-->
-	<form>
-        {{new}}
-	
+	</form>
+	{{new}}
 </div>
 
 

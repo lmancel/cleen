@@ -128,10 +128,8 @@
 					<div class="row">
 					   <div ng-repeat = "clothe in clothes | filter:searchText1| filter:searchText2| filter:searchText3| filter:searchText4| filter:searchText5| filter:searchText6| filter:searchText7| filter:searchText8| filter:searchText9| filter:searchText10" class="col-6 col-sm-6 col-lg-4">
 						   <a ng-href="#/clothes/{{clothe.sex}}/{{clothe.type}}/{{clothe.dbname}}{{clothe._id}}">
-							   <figure style="margin-top:50px;margin-left:20px">
 								  <img class="thumbnail" style="max-width:250px;max-height:250px" src="{{clothe.photo}}" />
 								  <figcaption > {{clothe.brand}} - {{clothe.type}} {{clothe.model}}</figcaption>
-								</figure>							  
 						   </a>
 					   </div>
 					</div>				  
