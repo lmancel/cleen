@@ -49,7 +49,7 @@ cleen.config(['$routeProvider',
             }).
             when('/clothes/:sex/:type/:nameid', {
                 templateUrl: 'partials/clothe.html',
-                controller: ''
+                controller: 'clothesPage'
             }).
             when('/profile', {
                 controller: '',

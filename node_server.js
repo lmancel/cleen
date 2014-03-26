@@ -267,10 +267,23 @@ db.once('open', function callback () {
     });
 
     app.post('/new', function(req, res) {
+        var extentionPosition = req.files.file.name.lastIndexOf('.');
+        var file_extension= (extentionPosition < 0) ? '' : req.files.file.name.substr(extentionPosition);
 
         var newClothe = new Clothes;
+        newClothe.dbname = "";
+        newClothe.model = "";
+        newClothe.photo = "img/" + newClothe._id.toString() + file_extension;
         newClothe.sex = req.body.sex;
-        newClothe.type = req.body.type[0];
+
+        newClothe.type = "";
+        for (var k=0; k < req.body.type.length; k++) {
+            if (req.body.type[k].indexOf('?') ==-1 ) {
+                newClothe.type = req.body.type[k];
+                break;
+            }
+        }
+
         newClothe.brand = req.body.brand;
         newClothe.lavage = req.body.lavage;
         newClothe.blanchiment= req.body.blanchiment;
@@ -292,37 +305,35 @@ db.once('open', function callback () {
             }
         }
 
-        console.log(newClothe);
-
-    });
-
-    app.post('/upload/:id', function(req, res) {
-        var filename=req.files.file.name;
-
-        var i = filename.lastIndexOf('.');
+        newClothe.save(function(err) {
+            if (err)
+                throw err;
+        });
 
         var tmp_path = req.files.file.path;
+        var target_path = __dirname + '/app/' + newClothe.photo;
 
-        var file_extension= (i < 0) ? '' : filename.substr(i);
+        fs.rename(tmp_path, target_path, function(err) {
+            if (err) throw err;
+            fs.unlink(tmp_path, function() {
+                if (err) throw err;
+            });
+        });
 
-        var target_path = __dirname + '/app/img/' + req.params.id + file_extension;
-
-        console.log('extention : ' + file_extension);
-        console.log('path : ' + target_path);
-
-//        fs.rename(tmp_path, target_path, function(err) {
-//            if (err) throw err;
-//            fs.unlink(tmp_path, function() {
-//                if (err) throw err;
-//            });
-//        });
-
-        console.log("File uploaded successfully");
-//
 //        fs.unlink(tmp_path, function(err) {
 //            if (err) throw err;
 //        });
+
+//        req.flash('clotheId', newClothe._id.toString());
+        res.redirect('#/new');
+
     });
+
+//    app.get('/new/1/2/3/4/5/6/7/8/9/10/11/12', function(req, res) {
+//        var clotheID = req.flash('clotheId');
+//        res.send(clotheID);
+//    });
+
 });
 
 

@@ -100,8 +100,9 @@ cleencontroller.controller('clothesController', function($scope,$http,$location)
 });
 
 cleencontroller.controller('clothesPage', function($scope,$http,$location) {
-    var id_place = $location.path().split('-').length - 1;
-    var id =$location.path().split('-')[id_place];
+    var clothePath = $location.path().split('/')[$location.path().split('/').length - 1];
+    var id_place = clothePath.split('-').length - 1;
+    var id =clothePath.split('-')[id_place];
     $scope.getClothe=function() {
         $http.get(id)
             .success(function(data){
@@ -347,10 +348,14 @@ cleencontroller.controller('newClothesController', function($scope, $http) {
                 }
             });
 
-        $http.post('/new', $scope.new)
-            .success(function(added) {
-                console.log('clothe added successfully');
-            });
+        $http.post('/new', $scope.new);
+
+//        $http.get('/new/1/2/3/4/5/6/7/8/9/10/11/12')
+//            .success(function(id) {
+////                $http.post('/upload/'+id);
+//
+//            });
+
     };
     $scope.getCleaning();
 });

@@ -6,7 +6,7 @@
 
 	<div class="container" ng-controller="newClothesController">
 	
-	<form class="form-horizontal" action="/new" method="post" role="form" ng-submit="submit()" >
+	<form class="form-horizontal" action="/new" method="post" role="form" ng-submit="submit()" enctype="multipart/form-data">
 		<div class="row">
 			<div class="form-group">	
 				<div ng-controller="mainNavBar">
@@ -1575,7 +1575,6 @@
             <button type="submit" class="btn btn-primary btn-lg"> Laver !</button>
 		<!--</div>-->
 	</form>
-	{{new}}
 </div>
 
 
