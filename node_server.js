@@ -267,9 +267,33 @@ db.once('open', function callback () {
     });
 
     app.post('/new', function(req, res) {
-        console.log('sex  :  ' + req.body.sex);
+
         var newClothe = new Clothes;
-//        newClothe.sex = req.body.sex;
+        newClothe.sex = req.body.sex;
+        newClothe.type = req.body.type[0];
+        newClothe.brand = req.body.brand;
+        newClothe.lavage = req.body.lavage;
+        newClothe.blanchiment= req.body.blanchiment;
+        newClothe.sechage= req.body.sechage;
+        newClothe.repassage = req.body.repassage;
+        newClothe.nettPro= req.body.nettPro;
+
+        newClothe.color = [];
+        for (var i=0; i < req.body.color.length; i++ ) {
+            if (req.body.color[i].indexOf('?') == -1) {
+                newClothe.color.push(req.body.color[i]);
+            }
+        }
+
+        newClothe.materials = [];
+        for (var j=0; j < req.body.materials_type.length; j++ ) {
+            if (req.body.materials_type[j].indexOf('?') == -1) {
+                newClothe.materials.push({name:req.body.materials_type[j], perc:req.body.materials_perc[j]});
+            }
+        }
+
+        console.log(newClothe);
+
     });
 
     app.post('/upload/:id', function(req, res) {
